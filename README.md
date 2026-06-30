@@ -1,196 +1,150 @@
 # 🌸 MP FloraStudio
 
-> **A cute, techy garden sidekick inspired by my mum, her plants, and a few too
-> many mysterious plant deaths.** 🌱🎮
+> **A cute, techy garden sidekick inspired by my mum, her plants, and a few too many mysterious plant deaths.** 🌱🎮
 
-MP FloraStudio lets you start from a photo of your real space (garden, balcony,
-backyard, courtyard, living room or indoor corner), drag in plants, flowers,
-pots, statues, vines, lighting, furniture and decor, then care for the living
-plants you brought to life.
+<p align="center">
+  <a href="https://mp-florastudio.vercel.app/"><strong>🌐 Open the live app</strong></a>
+  &nbsp;·&nbsp;
+  <a href="https://mp-florastudio.vercel.app/design/demo/editor"><strong>🎨 Try the editor</strong></a>
+  &nbsp;·&nbsp;
+  <a href="https://mp-florastudio.vercel.app/plants"><strong>🌱 Meet the plants</strong></a>
+</p>
 
-**Aesthetic:** _Canva meets a refined pink flower garden studio_: blush & rose,
-ivory whitespace, delicate floral line-art, soft shadows, and gentle
-micro-interactions, built for people who want their home to feel beautiful.
+![MP FloraStudio landing page](assets/01-landing-page.png)
 
 ## 🌱 Why I built this
 
-This idea started with my mum. She loves her garden and always wants to make it
-look beautiful, so she likes trying different plants and finding the perfect
-spot for each one. The sad part? Sometimes a plant would die, and she had no
-idea why. Too much water? Not enough sun? Wrong spot? Plant drama? Nobody knew.
+This idea started with my mum. She loves her garden and is always trying new
+plants to make it look beautiful. Sometimes a plant would suddenly die and she
+had no idea why. Too much water? Not enough sun? Wrong spot? Plant drama?
+Nobody knew.
 
 So, as her son and the techy one in the family, I wanted to build something for
-her: a web app that helps her monitor her plants, understand what they need, and
-design her dream garden before moving everything around in real life.
+her. MP FloraStudio helps her imagine a garden before moving everything around,
+monitor the plants she brings home, and understand what each one needs.
 
-MP FloraStudio is part plant-care sidekick, part cosy game, and part garden
-design studio. The goal is simple: turn confusing plant care into something
-visual, playful, and actually fun for my mum to use. 🌸
+It is part garden design studio, part plant-care sidekick, and part cosy game.
+The goal is simple: make plant care less confusing and much more fun. 🌸
 
----
+## ✨ What makes it special
 
-## ⚠️ This is Phase 1: frontend only
+- **Design first, care second:** create a dream space, then keep its living plants healthy in the same experience.
+- **No-code visual editor:** add, drag, resize, rotate, layer, duplicate and preview garden pieces directly in the browser.
+- **A cosy game loop:** plants have names, levels, health, XP, value and one-tap care actions.
+- **Useful health signals:** hydration, sunlight, fertiliser, growth, leaf colour and stress turn plant care into something visible.
+- **From mood board to shopping list:** the final preview connects each design choice to an item and estimated cost.
+- **Friendly photo-check concept:** a clearly labelled mock scan demonstrates how future computer vision could explain plant problems.
+- **A complete frontend prototype:** eight connected screens, responsive UI, local interactions and no sign-up required.
 
-This repository is a **frontend-only demo prototype**. It is intentionally
-self-contained and proves the product idea visually.
+## 🎨 Product tour
 
-There is **no backend**. Specifically, this phase does **not** include:
+### 1. Landing page: understand the whole idea at a glance
 
-- ❌ Authentication / accounts
-- ❌ Database or persistence (state is in-memory / `sessionStorage` only)
-- ❌ Real API routes or server actions
-- ❌ Prisma / Supabase
-- ❌ Real AI/ML: the “Demo AI scan” is simulated from mock data
+The home page introduces the two connected studios: visual garden design and
+game-like plant care. It gives visitors a direct path into either experience.
 
-Everything you see runs in the browser using **local React state** and
-**mock data**. All imagery is hand-crafted inline **SVG** + CSS gradients, so
-the app builds cleanly and works fully offline.
+![FloraStudio landing page and product overview](assets/01-landing-page.png)
 
----
+### 2. Dashboard: one home for spaces and plants
 
-## ✨ Features
+The dashboard brings saved designs, garden health and collection value into one
+view. Its purpose is to make the product feel like an ongoing personal studio,
+not a one-time design tool.
 
-### 1. No-code visual design editor (`/design/demo/editor`)
-A Canva-like editor for your space:
+![FloraStudio dashboard](assets/02-dashboard.png)
 
-- 🔍 **Search** components & **browse** 12 categories
-- ➕ **Add** components to the canvas with a click
-- ✋ **Drag**, ↔️ **resize**, 🔄 **rotate** (powered by `react-rnd`)
-- 📑 **Duplicate** & 🗑️ **delete** pieces
-- 🔭 **Zoom** the canvas (50% to 200%)
-- 🎚️ Live **properties panel** (size, rotation, opacity, flip, layering)
-- 🖼️ Swap the **background space**, then **preview** the finished design
+### 3. New design setup: shape the garden before editing
 
-Categories: Flowers · Plants · Pots · Vines · Stones · Statues · Lighting ·
-Benches · Outdoor furniture · Indoor furniture · Wall decor · Living room decor.
+Users choose the space, starting photo, mood, sunlight, maintenance level and
+budget. A live summary turns a few friendly choices into a clear design brief.
 
-### 2. Cute, game-like plant health monitor (`/plants`)
-Care for your plants like a cosy game:
+![FloraStudio new design setup](assets/03-new-design.png)
 
-- 🪴 Plant cards with cute avatar, name, **level**, **health score** & **value**
-- 📊 Stats: hydration, sunlight, fertiliser, growth, leaf colour, stress
-- 🟢 Status: **thriving / okay / needs care**
-- 💧☀️🌱🌫️ One-tap care: **Water · Give sunlight · Fertilise · Mist leaves**
-- ✨ Delightful feedback: water droplets, sunlight glow, sparkles, mist, level-ups
-- 🌿 Overall **garden health** ring + register new plants
+### 4. Visual editor: the main creative playground
 
-### 3. Demo AI photo health check (`/plants/demo/photo-check`)
-- 📸 Mock upload / take-photo UI with **local image preview**
-- 🔎 Simulated scan animation → **fake “Demo AI scan” result**
-- 🏷️ Clearly labelled as **mock / demo**; nothing leaves your browser
+This is the core selling point. Users browse twelve categories, place pieces on
+their real space, then drag, resize, rotate, layer and style the result. The
+library, canvas and properties panel keep the workflow visual and approachable.
 
----
+![FloraStudio no-code visual garden editor](assets/04-design-editor.png)
 
-## 🗺️ Routes
+### 5. Final preview: turn a design into an actionable plan
 
-| Route | Page |
-| --- | --- |
-| `/` | Landing page |
-| `/dashboard` | Saved designs + plant care summary |
-| `/design/new` | New design setup (space, photo, style, budget…) |
-| `/design/demo/editor` | The visual design editor |
-| `/design/demo/preview` | Final design preview + shopping list |
-| `/plants` | Plant monitor (garden) |
-| `/plants/demo` | Plant detail + care timeline |
-| `/plants/demo/photo-check` | Demo AI photo health check |
+The finished space appears beside a shopping and decor list with individual
+prices and an estimated total. It closes the gap between inspiration and what
+someone would actually need to build the garden.
 
----
+![FloraStudio final design preview and shopping list](assets/05-design-preview.png)
+
+### 6. Plant garden: care feels like a cosy game
+
+Every plant becomes a character with a name, level, health score, value and XP.
+At-a-glance care bars make it obvious which plants are thriving and which need
+attention.
+
+![FloraStudio game-like plant garden](assets/06-plant-garden.png)
+
+### 7. Plant detail: useful signals without the overwhelm
+
+The detail view combines six vital stats with a care timeline. It shows what is
+happening now and what was done recently, giving each plant a simple health
+story instead of a wall of gardening jargon.
+
+![FloraStudio plant health detail](assets/07-plant-detail.png)
+
+### 8. Photo health check: a future AI direction
+
+Users can preview a plant photo locally and explore a simulated health-check
+flow. Phase 1 labels this clearly as mock AI, while demonstrating where a real
+vision model could later detect symptoms and suggest care.
+
+![FloraStudio demo photo health check](assets/08-photo-health-check.png)
+
+## ⚠️ Phase 1: frontend prototype
+
+The live app is a self-contained frontend demo built to prove the product idea
+and interaction design. It currently uses local React state, `sessionStorage`
+and mock data.
+
+Phase 1 does not include authentication, a database, persistent accounts,
+server APIs, real AI inference, checkout or notifications. The photo health
+check is intentionally labelled as a simulation.
 
 ## 🧰 Tech stack
 
-- **Next.js (App Router)** + **TypeScript**
-- **Tailwind CSS v4** (CSS-first `@theme` design tokens)
-- **shadcn/ui-style** primitives on **Radix UI**
-- **lucide-react** icons
-- **react-rnd** for drag / resize in the editor
-- **sonner** for toasts
-- Local React state + mock data (no backend)
-
----
+- **Next.js App Router** with **TypeScript**
+- **Tailwind CSS v4** with custom design tokens
+- **Radix UI** and shadcn-style primitives
+- **react-rnd** for canvas dragging and resizing
+- **lucide-react** icons and **sonner** notifications
+- Hand-crafted SVG illustrations and CSS gradients
 
 ## 🚀 Run locally
 
 ```bash
-# 1. install
 npm install
-
-# 2. start the dev server
 npm run dev
-# open http://localhost:3000
+```
 
-# 3. production build (also used by Vercel)
+Open `http://localhost:3000`.
+
+For a production check:
+
+```bash
 npm run build
 npm start
 ```
 
-Requires Node 18.18+ (developed on Node 24).
+Requires Node 18.18 or newer.
+
+## 🔭 Where it can grow next
+
+- Real image-based plant health detection with explainable care suggestions
+- Accounts, saved gardens and long-term plant history
+- Weather-aware reminders and notifications
+- A real plant and decor catalogue with sourcing links
+- Garden growth progress and seasonal recommendations
 
 ---
 
-## ▲ Deploy on Vercel
-
-This project is Vercel-ready out of the box. It's a standard Next.js app with
-no environment variables, no database and no server dependencies.
-
-1. Push this repo to GitHub (already at
-   `github.com/NathanVuSwinburne/mp-florastudio`).
-2. In [Vercel](https://vercel.com/new), **Import** the repository.
-3. Framework preset: **Next.js** (auto-detected). No env vars needed.
-4. Click **Deploy**. Every route is statically prerendered.
-
-Or with the CLI:
-
-```bash
-npm i -g vercel
-vercel        # preview
-vercel --prod # production
-```
-
----
-
-## 📁 Project structure
-
-```
-app/
-  layout.tsx                  # fonts, metadata, toaster
-  page.tsx                    # landing
-  dashboard/page.tsx
-  design/new/page.tsx
-  design/demo/editor/page.tsx
-  design/demo/preview/page.tsx
-  plants/page.tsx
-  plants/demo/page.tsx
-  plants/demo/photo-check/page.tsx
-components/
-  ui/                         # shadcn-style primitives (button, card, slider…)
-  layout/                     # header, footer, page shell
-  landing/                    # hero editor mockup
-  editor/                     # editor studio, canvas item, library, properties
-  plants/                     # plant card, detail, stats, care, photo check
-  flora-art.tsx               # all inline SVG illustrations
-  decorations.tsx             # floral divider, vine corners, petals
-  brand.tsx                   # logo + flower mark
-lib/
-  types.ts                    # shared types
-  care.ts                     # plant care logic
-  canvas.ts                   # canvas constants
-  utils.ts                    # cn, currency, clamp
-  mock/                       # components, spaces, projects, plants, aiScans
-```
-
----
-
-## 🔭 Future backend plan (not in this phase)
-
-Phase 1 deliberately stops at the frontend. A future phase could add:
-
-- 🔐 **Auth & accounts** (e.g. Auth.js) so designs and gardens persist per user
-- 🗄️ **Database** (Postgres + an ORM) for projects, components, plants & care logs
-- 🔌 **API routes / server actions** for CRUD and saving designs
-- 🤖 **Real AI plant health**: replace the mock scan with an actual vision model
-- 🛒 **Real catalogue & checkout** for the shopping list
-- ⏰ Care reminders / notifications and growth history over time
-
----
-
-_MP FloraStudio · Phase 1 frontend demo · all data is mock._
+_Made for my mum, her garden, and every plant that deserves a better chance._ 🌷
