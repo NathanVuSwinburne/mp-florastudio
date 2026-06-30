@@ -1,20 +1,35 @@
 # 🌸 MP FloraStudio
 
-> **Design your dream garden from a photo** — a no-code visual studio for gardens
-> and home spaces, paired with a cosy, game-like plant care companion.
+> **A cute, techy garden sidekick inspired by my mum, her plants, and a few too
+> many mysterious plant deaths.** 🌱🎮
 
 MP FloraStudio lets you start from a photo of your real space (garden, balcony,
 backyard, courtyard, living room or indoor corner), drag in plants, flowers,
-pots, statues, vines, lighting, furniture and decor — then care for the living
+pots, statues, vines, lighting, furniture and decor, then care for the living
 plants you brought to life.
 
-**Aesthetic:** _Canva meets a refined pink flower garden studio_ — blush & rose,
+**Aesthetic:** _Canva meets a refined pink flower garden studio_: blush & rose,
 ivory whitespace, delicate floral line-art, soft shadows, and gentle
 micro-interactions, built for people who want their home to feel beautiful.
 
+## 🌱 Why I built this
+
+This idea started with my mum. She loves her garden and always wants to make it
+look beautiful, so she likes trying different plants and finding the perfect
+spot for each one. The sad part? Sometimes a plant would die, and she had no
+idea why. Too much water? Not enough sun? Wrong spot? Plant drama? Nobody knew.
+
+So, as her son and the techy one in the family, I wanted to build something for
+her: a web app that helps her monitor her plants, understand what they need, and
+design her dream garden before moving everything around in real life.
+
+MP FloraStudio is part plant-care sidekick, part cosy game, and part garden
+design studio. The goal is simple: turn confusing plant care into something
+visual, playful, and actually fun for my mum to use. 🌸
+
 ---
 
-## ⚠️ This is Phase 1 — frontend only
+## ⚠️ This is Phase 1: frontend only
 
 This repository is a **frontend-only demo prototype**. It is intentionally
 self-contained and proves the product idea visually.
@@ -25,7 +40,7 @@ There is **no backend**. Specifically, this phase does **not** include:
 - ❌ Database or persistence (state is in-memory / `sessionStorage` only)
 - ❌ Real API routes or server actions
 - ❌ Prisma / Supabase
-- ❌ Real AI/ML — the “Demo AI scan” is simulated from mock data
+- ❌ Real AI/ML: the “Demo AI scan” is simulated from mock data
 
 Everything you see runs in the browser using **local React state** and
 **mock data**. All imagery is hand-crafted inline **SVG** + CSS gradients, so
@@ -42,7 +57,7 @@ A Canva-like editor for your space:
 - ➕ **Add** components to the canvas with a click
 - ✋ **Drag**, ↔️ **resize**, 🔄 **rotate** (powered by `react-rnd`)
 - 📑 **Duplicate** & 🗑️ **delete** pieces
-- 🔭 **Zoom** the canvas (50%–200%)
+- 🔭 **Zoom** the canvas (50% to 200%)
 - 🎚️ Live **properties panel** (size, rotation, opacity, flip, layering)
 - 🖼️ Swap the **background space**, then **preview** the finished design
 
@@ -62,7 +77,7 @@ Care for your plants like a cosy game:
 ### 3. Demo AI photo health check (`/plants/demo/photo-check`)
 - 📸 Mock upload / take-photo UI with **local image preview**
 - 🔎 Simulated scan animation → **fake “Demo AI scan” result**
-- 🏷️ Clearly labelled as **mock / demo** — nothing leaves your browser
+- 🏷️ Clearly labelled as **mock / demo**; nothing leaves your browser
 
 ---
 
@@ -114,14 +129,14 @@ Requires Node 18.18+ (developed on Node 24).
 
 ## ▲ Deploy on Vercel
 
-This project is Vercel-ready out of the box — it's a standard Next.js app with
+This project is Vercel-ready out of the box. It's a standard Next.js app with
 no environment variables, no database and no server dependencies.
 
 1. Push this repo to GitHub (already at
    `github.com/NathanVuSwinburne/mp-florastudio`).
 2. In [Vercel](https://vercel.com/new), **Import** the repository.
 3. Framework preset: **Next.js** (auto-detected). No env vars needed.
-4. Click **Deploy** — every route is statically prerendered.
+4. Click **Deploy**. Every route is statically prerendered.
 
 Or with the CLI:
 
@@ -172,7 +187,7 @@ Phase 1 deliberately stops at the frontend. A future phase could add:
 - 🔐 **Auth & accounts** (e.g. Auth.js) so designs and gardens persist per user
 - 🗄️ **Database** (Postgres + an ORM) for projects, components, plants & care logs
 - 🔌 **API routes / server actions** for CRUD and saving designs
-- 🤖 **Real AI plant health** — replace the mock scan with an actual vision model
+- 🤖 **Real AI plant health**: replace the mock scan with an actual vision model
 - 🛒 **Real catalogue & checkout** for the shopping list
 - ⏰ Care reminders / notifications and growth history over time
 
