@@ -1,21 +1,23 @@
 "use client";
 
 import { useState } from "react";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { useTranslations } from "next-intl";
 import { Menu, Sparkles, X } from "lucide-react";
+import { Link, usePathname } from "@/i18n/navigation";
 import { Logo } from "@/components/brand";
+import { LanguageSwitcher } from "@/components/layout/language-switcher";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
 const NAV = [
-  { href: "/dashboard", label: "Dashboard" },
-  { href: "/design/new", label: "New design" },
-  { href: "/design/demo/editor", label: "Editor" },
-  { href: "/plants", label: "Plant care" },
-];
+  { href: "/dashboard", labelKey: "nav.dashboard" },
+  { href: "/design/new", labelKey: "nav.newDesign" },
+  { href: "/design/demo/editor", labelKey: "nav.editor" },
+  { href: "/plants", labelKey: "nav.plantCare" },
+] as const;
 
 export function SiteHeader() {
+  const t = useTranslations();
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
 
@@ -42,16 +44,17 @@ export function SiteHeader() {
               {isActive(item.href) && (
                 <span className="absolute inset-0 -z-10 rounded-full bg-blush-100" />
               )}
-              {item.label}
+              {t(item.labelKey)}
             </Link>
           ))}
         </nav>
 
         <div className="hidden items-center gap-2 md:flex">
+          <LanguageSwitcher />
           <Button asChild variant="default" size="sm">
             <Link href="/design/new">
               <Sparkles className="h-4 w-4" />
-              Start designing
+              {t("nav.startDesigning")}
             </Link>
           </Button>
         </div>
@@ -59,7 +62,7 @@ export function SiteHeader() {
         <button
           className="grid h-10 w-10 place-items-center rounded-full text-plum-700 hover:bg-blush-50 md:hidden"
           onClick={() => setOpen((v) => !v)}
-          aria-label="Toggle menu"
+          aria-label={t("nav.toggleMenu")}
         >
           {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
         </button>
@@ -80,15 +83,16 @@ export function SiteHeader() {
                     : "text-plum-600 hover:bg-blush-50"
                 )}
               >
-                {item.label}
+                {t(item.labelKey)}
               </Link>
             ))}
             <Button asChild className="mt-2">
               <Link href="/design/new" onClick={() => setOpen(false)}>
                 <Sparkles className="h-4 w-4" />
-                Start designing
+                {t("nav.startDesigning")}
               </Link>
             </Button>
+            <LanguageSwitcher className="mt-2 self-start" />
           </nav>
         </div>
       )}

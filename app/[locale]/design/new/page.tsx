@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef, useState } from "react";
-import { useRouter } from "next/navigation";
+import { useTranslations } from "next-intl";
 import Image from "next/image";
 import {
   ArrowRight,
@@ -13,6 +13,7 @@ import {
   PawPrint,
   Leaf,
 } from "lucide-react";
+import { useRouter } from "@/i18n/navigation";
 import { PageShell } from "@/components/layout/page-shell";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -30,15 +31,17 @@ import { VineCorner } from "@/components/decorations";
 import { SAMPLE_SPACES, SPACE_TYPES } from "@/lib/mock/spaces";
 import { cn, formatCurrency } from "@/lib/utils";
 
+// Canonical English keys — kept stable for state & lookups; displayed via t().
 const MOODS = ["Romantic", "Modern Luxe", "Cottagecore", "Mediterranean", "Minimal Zen", "Wild Garden"];
 const MAINTENANCE = ["Low", "Medium", "High"];
 const SUNLIGHT = ["Full sun", "Partial shade", "Low light"];
 
 export default function NewDesignPage() {
+  const t = useTranslations();
   const router = useRouter();
   const fileRef = useRef<HTMLInputElement>(null);
 
-  const [name, setName] = useState("My Dream Space");
+  const [name, setName] = useState(t("newDesign.defaultName"));
   const [spaceType, setSpaceType] = useState(SPACE_TYPES[0]);
   const [spaceId, setSpaceId] = useState(SAMPLE_SPACES[0].id);
   const [upload, setUpload] = useState<string | null>(null);
@@ -61,13 +64,12 @@ export default function NewDesignPage() {
   return (
     <PageShell className="mx-auto w-full max-w-6xl px-5 pb-16 pt-10 sm:px-8">
       <div className="mb-8">
-        <p className="text-sm font-medium text-rose-500">New design</p>
+        <p className="text-sm font-medium text-rose-500">{t("newDesign.eyebrow")}</p>
         <h1 className="mt-1 font-display text-4xl tracking-tight text-plum-900">
-          Set up your space
+          {t("newDesign.title")}
         </h1>
         <p className="mt-2 max-w-xl text-plum-500">
-          A few quick choices and we&apos;ll open the editor. Everything is a
-          frontend demo — your settings shape the canvas you land on.
+          {t("newDesign.subtitle")}
         </p>
       </div>
 
@@ -75,21 +77,21 @@ export default function NewDesignPage() {
         {/* FORM */}
         <div className="space-y-8">
           {/* basics */}
-          <Section title="The basics" icon={Sparkles}>
+          <Section title={t("newDesign.basics")} icon={Sparkles}>
             <div className="space-y-4">
               <div>
-                <Label htmlFor="name">Project name</Label>
+                <Label htmlFor="name">{t("newDesign.projectName")}</Label>
                 <Input id="name" value={name} onChange={(e) => setName(e.target.value)} className="mt-1.5" />
               </div>
               <div>
-                <Label>Space type</Label>
+                <Label>{t("newDesign.spaceType")}</Label>
                 <Select value={spaceType} onValueChange={(v) => setSpaceType(v as typeof spaceType)}>
                   <SelectTrigger className="mt-1.5">
                     <SelectValue />
                   </SelectTrigger>
                   <SelectContent>
-                    {SPACE_TYPES.map((t) => (
-                      <SelectItem key={t} value={t}>{t}</SelectItem>
+                    {SPACE_TYPES.map((st) => (
+                      <SelectItem key={st} value={st}>{t(`spaceTypes.${st}`)}</SelectItem>
                     ))}
                   </SelectContent>
                 </Select>
@@ -98,9 +100,9 @@ export default function NewDesignPage() {
           </Section>
 
           {/* photo */}
-          <Section title="Choose a photo" icon={Upload}>
+          <Section title={t("newDesign.choosePhoto")} icon={Upload}>
             <p className="mb-3 text-sm text-plum-500">
-              Pick a sample space or upload your own (previewed locally — nothing is uploaded).
+              {t("newDesign.choosePhotoSub")}
             </p>
             <div className="grid grid-cols-2 gap-3 sm:grid-cols-3">
               {SAMPLE_SPACES.map((s) => (
@@ -114,7 +116,7 @@ export default function NewDesignPage() {
                 >
                   <div className="h-20 w-full" style={{ background: s.gradient }} />
                   <div className="bg-paper px-2.5 py-1.5">
-                    <p className="truncate text-xs font-medium text-plum-700">{s.name}</p>
+                    <p className="truncate text-xs font-medium text-plum-700">{t(`spaces.${s.id}`)}</p>
                   </div>
                   {spaceId === s.id && (
                     <span className="absolute right-2 top-2 grid h-5 w-5 place-items-center rounded-full bg-rose-500 text-white">
@@ -134,7 +136,7 @@ export default function NewDesignPage() {
               >
                 {upload ? (
                   <>
-                    <Image src={upload} alt="Your upload" fill unoptimized className="object-cover" />
+                    <Image src={upload} alt={t("newDesign.yourUpload")} fill unoptimized className="object-cover" />
                     <span className="absolute right-2 top-2 grid h-5 w-5 place-items-center rounded-full bg-rose-500 text-white">
                       <Check className="h-3 w-3" />
                     </span>
@@ -142,7 +144,7 @@ export default function NewDesignPage() {
                 ) : (
                   <span className="flex flex-col items-center gap-1 py-6 text-plum-400">
                     <Upload className="h-5 w-5" />
-                    <span className="text-xs font-medium">Upload photo</span>
+                    <span className="text-xs font-medium">{t("newDesign.uploadPhoto")}</span>
                   </span>
                 )}
               </button>
@@ -151,29 +153,29 @@ export default function NewDesignPage() {
           </Section>
 
           {/* preferences */}
-          <Section title="Style & preferences" icon={Leaf}>
+          <Section title={t("newDesign.stylePrefs")} icon={Leaf}>
             <div className="space-y-5">
               <div>
-                <Label>Style mood</Label>
+                <Label>{t("newDesign.styleMood")}</Label>
                 <div className="mt-2 flex flex-wrap gap-2">
                   {MOODS.map((m) => (
-                    <Chip key={m} active={mood === m} onClick={() => setMood(m)}>{m}</Chip>
+                    <Chip key={m} active={mood === m} onClick={() => setMood(m)}>{t(`newDesign.moods.${m}`)}</Chip>
                   ))}
                 </div>
               </div>
 
               <div className="grid gap-4 sm:grid-cols-2">
                 <div>
-                  <Label className="flex items-center gap-1.5"><Sun className="h-4 w-4 text-gold" /> Sunlight</Label>
+                  <Label className="flex items-center gap-1.5"><Sun className="h-4 w-4 text-gold" /> {t("newDesign.sunlight")}</Label>
                   <Select value={sunlight} onValueChange={setSunlight}>
                     <SelectTrigger className="mt-1.5"><SelectValue /></SelectTrigger>
                     <SelectContent>
-                      {SUNLIGHT.map((s) => <SelectItem key={s} value={s}>{s}</SelectItem>)}
+                      {SUNLIGHT.map((s) => <SelectItem key={s} value={s}>{t(`newDesign.sunlightLevels.${s}`)}</SelectItem>)}
                     </SelectContent>
                   </Select>
                 </div>
                 <div>
-                  <Label>Maintenance</Label>
+                  <Label>{t("newDesign.maintenance")}</Label>
                   <div className="mt-1.5 flex rounded-full bg-blush-50 p-1">
                     {MAINTENANCE.map((m) => (
                       <button
@@ -184,7 +186,7 @@ export default function NewDesignPage() {
                           maintenance === m ? "bg-paper text-rose-600 shadow-sm" : "text-plum-500"
                         )}
                       >
-                        {m}
+                        {t(`newDesign.maintenanceLevels.${m}`)}
                       </button>
                     ))}
                   </div>
@@ -193,7 +195,7 @@ export default function NewDesignPage() {
 
               <div>
                 <div className="flex items-center justify-between">
-                  <Label className="flex items-center gap-1.5"><Wallet className="h-4 w-4 text-rose-500" /> Budget</Label>
+                  <Label className="flex items-center gap-1.5"><Wallet className="h-4 w-4 text-rose-500" /> {t("newDesign.budget")}</Label>
                   <span className="text-sm font-medium text-plum-700">{formatCurrency(budget)}</span>
                 </div>
                 <Slider className="mt-3" value={[budget]} min={200} max={5000} step={50} onValueChange={([b]) => setBudget(b)} />
@@ -203,8 +205,8 @@ export default function NewDesignPage() {
                 <div className="flex items-center gap-2">
                   <PawPrint className="h-5 w-5 text-rose-500" />
                   <div>
-                    <p className="text-sm font-medium text-plum-800">Pet-safe plants only</p>
-                    <p className="text-xs text-plum-400">Filter out anything toxic to cats &amp; dogs</p>
+                    <p className="text-sm font-medium text-plum-800">{t("newDesign.petSafeTitle")}</p>
+                    <p className="text-xs text-plum-400">{t("newDesign.petSafeSub")}</p>
                   </div>
                 </div>
                 <Switch checked={petSafe} onCheckedChange={setPetSafe} />
@@ -219,28 +221,28 @@ export default function NewDesignPage() {
             <VineCorner className="absolute -right-3 -top-3 z-10 h-28 w-28 opacity-60" />
             <div className="relative h-40 w-full">
               {upload ? (
-                <Image src={upload} alt="Selected space" fill unoptimized className="object-cover" />
+                <Image src={upload} alt={t("newDesign.yourUpload")} fill unoptimized className="object-cover" />
               ) : (
                 <div className="h-full w-full" style={{ background: selectedSpace.gradient }} />
               )}
               <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-plum-900/40 to-transparent p-4">
-                <p className="font-display text-xl text-white drop-shadow">{name || "Untitled"}</p>
+                <p className="font-display text-xl text-white drop-shadow">{name || t("newDesign.untitled")}</p>
               </div>
             </div>
             <div className="space-y-3 p-5">
-              <Row label="Space" value={spaceType} />
-              <Row label="Photo" value={upload ? "Your upload" : selectedSpace.name} />
-              <Row label="Mood" value={mood} />
-              <Row label="Sunlight" value={sunlight} />
-              <Row label="Maintenance" value={maintenance} />
-              <Row label="Budget" value={formatCurrency(budget)} />
-              <Row label="Pet-safe" value={petSafe ? "Yes 🐾" : "No"} />
+              <Row label={t("newDesign.summarySpace")} value={t(`spaceTypes.${spaceType}`)} />
+              <Row label={t("newDesign.summaryPhoto")} value={upload ? t("newDesign.yourUpload") : t(`spaces.${selectedSpace.id}`)} />
+              <Row label={t("newDesign.summaryMood")} value={t(`newDesign.moods.${mood}`)} />
+              <Row label={t("newDesign.summarySunlight")} value={t(`newDesign.sunlightLevels.${sunlight}`)} />
+              <Row label={t("newDesign.summaryMaintenance")} value={t(`newDesign.maintenanceLevels.${maintenance}`)} />
+              <Row label={t("newDesign.summaryBudget")} value={formatCurrency(budget)} />
+              <Row label={t("newDesign.summaryPetSafe")} value={petSafe ? t("newDesign.petSafeYes") : t("newDesign.petSafeNo")} />
 
               <Button className="mt-3 w-full" size="lg" onClick={() => router.push("/design/demo/editor")}>
-                Open editor <ArrowRight className="h-4 w-4" />
+                {t("newDesign.openEditor")} <ArrowRight className="h-4 w-4" />
               </Button>
               <p className="text-center text-[0.7rem] text-plum-400">
-                Demo opens a sample courtyard you can fully edit.
+                {t("newDesign.demoHint")}
               </p>
             </div>
           </div>

@@ -1,4 +1,5 @@
-import Link from "next/link";
+import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
 import { cn } from "@/lib/utils";
 
 export function FlowerMark({ className }: { className?: string }) {
@@ -36,6 +37,7 @@ export function Logo({
   className?: string;
   href?: string;
 }) {
+  const t = useTranslations();
   return (
     <Link
       href={href}
@@ -49,7 +51,7 @@ export function Logo({
           MP FloraStudio
         </span>
         <span className="text-[0.62rem] uppercase tracking-[0.22em] text-rose-500">
-          Design · Grow · Bloom
+          {t("brand.tagline")}
         </span>
       </span>
     </Link>

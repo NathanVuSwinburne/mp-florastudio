@@ -1,8 +1,7 @@
 "use client";
 
 import { useCallback, useMemo, useState } from "react";
-import Link from "next/link";
-import { useRouter } from "next/navigation";
+import { useTranslations } from "next-intl";
 import {
   ChevronLeft,
   Eye,
@@ -14,6 +13,7 @@ import {
   Layers,
 } from "lucide-react";
 import { toast } from "sonner";
+import { Link, useRouter } from "@/i18n/navigation";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { FlowerMark } from "@/components/brand";
@@ -31,6 +31,7 @@ let counter = 100;
 const nextId = () => `c${++counter}`;
 
 export function EditorStudio() {
+  const t = useTranslations();
   const router = useRouter();
   const [items, setItems] = useState<CanvasItem[]>(() =>
     DEMO_DESIGN.map((d) => ({ ...d }))
@@ -69,9 +70,9 @@ export function EditorStudio() {
         },
       ]);
       setSelectedId(id);
-      toast(`${def.name} added`, { icon: "🌿" });
+      toast(t("editor.addedToast", { name: t(`components.${def.id}.name`) }), { icon: "🌿" });
     },
-    [items.length]
+    [items.length, t]
   );
 
   const updateItem = useCallback((id: string, patch: Partial<CanvasItem>) => {
@@ -90,16 +91,16 @@ export function EditorStudio() {
         { ...src, instanceId: newId, x: src.x + 28, y: src.y + 28, z: topZ + 1 },
       ]);
       setSelectedId(newId);
-      toast("Duplicated", { icon: "📑" });
+      toast(t("editor.duplicatedToast"), { icon: "📑" });
     },
-    [items, topZ]
+    [items, topZ, t]
   );
 
   const remove = useCallback((id: string) => {
     setItems((prev) => prev.filter((i) => i.instanceId !== id));
     setSelectedId(null);
-    toast("Removed", { icon: "🗑️" });
-  }, []);
+    toast(t("editor.removedToast"), { icon: "🗑️" });
+  }, [t]);
 
   const layer = useCallback(
     (id: string, dir: "up" | "down") => {
@@ -117,7 +118,7 @@ export function EditorStudio() {
   const clearAll = () => {
     setItems([]);
     setSelectedId(null);
-    toast("Canvas cleared", { icon: "🧹" });
+    toast(t("editor.clearedToast"), { icon: "🧹" });
   };
 
   const preview = () => {
@@ -139,7 +140,7 @@ export function EditorStudio() {
       <header className="z-30 flex h-14 items-center justify-between border-b border-blush-200 bg-paper/90 px-3 backdrop-blur sm:px-4">
         <div className="flex items-center gap-2">
           <Button asChild variant="ghost" size="icon" className="shrink-0">
-            <Link href="/dashboard" aria-label="Back to dashboard">
+            <Link href="/dashboard" aria-label={t("editor.backToDashboard")}>
               <ChevronLeft className="h-5 w-5" />
             </Link>
           </Button>
@@ -147,23 +148,23 @@ export function EditorStudio() {
             <FlowerMark className="h-5 w-5" />
           </span>
           <div className="hidden leading-tight sm:block">
-            <p className="text-sm font-medium text-plum-900">Tuscan Courtyard Retreat</p>
-            <p className="text-[0.65rem] text-plum-400">{space?.name} · Auto-saved (demo)</p>
+            <p className="text-sm font-medium text-plum-900">{t("editor.projectName")}</p>
+            <p className="text-[0.65rem] text-plum-400">{t("editor.autoSaved", { space: t(`spaces.${spaceId}`) })}</p>
           </div>
         </div>
 
         <div className="flex items-center gap-2">
           <Badge variant="soft" className="hidden sm:inline-flex">
-            <Layers className="h-3 w-3" /> {items.length} items
+            <Layers className="h-3 w-3" /> {t("editor.items", { count: items.length })}
           </Badge>
           <Badge variant="gold" className="hidden sm:inline-flex">
             {formatCurrency(totalCost)}
           </Badge>
           <Button variant="outline" size="sm" onClick={clearAll} className="hidden sm:inline-flex">
-            <Trash2 className="h-4 w-4" /> Clear
+            <Trash2 className="h-4 w-4" /> {t("editor.clear")}
           </Button>
           <Button size="sm" onClick={preview}>
-            <Eye className="h-4 w-4" /> Preview
+            <Eye className="h-4 w-4" /> {t("editor.preview")}
           </Button>
         </div>
       </header>
@@ -228,8 +229,8 @@ export function EditorStudio() {
                   <div className="pointer-events-none absolute inset-0 grid place-items-center text-center">
                     <div className="rounded-2xl bg-paper/70 px-6 py-5 backdrop-blur">
                       <Sparkles className="mx-auto h-6 w-6 text-rose-400" />
-                      <p className="mt-2 text-sm font-medium text-plum-700">Your canvas is empty</p>
-                      <p className="text-xs text-plum-400">Add pieces from the library to begin.</p>
+                      <p className="mt-2 text-sm font-medium text-plum-700">{t("editor.canvasEmpty")}</p>
+                      <p className="text-xs text-plum-400">{t("editor.canvasEmptyHint")}</p>
                     </div>
                   </div>
                 )}
@@ -242,7 +243,7 @@ export function EditorStudio() {
             <button
               onClick={() => setZoomClamped(zoom - 0.1)}
               className="grid h-8 w-8 place-items-center rounded-full text-plum-500 hover:bg-blush-50 hover:text-rose-600"
-              aria-label="Zoom out"
+              aria-label={t("editor.zoomOut")}
             >
               <Minus className="h-4 w-4" />
             </button>
@@ -255,7 +256,7 @@ export function EditorStudio() {
             <button
               onClick={() => setZoomClamped(zoom + 0.1)}
               className="grid h-8 w-8 place-items-center rounded-full text-plum-500 hover:bg-blush-50 hover:text-rose-600"
-              aria-label="Zoom in"
+              aria-label={t("editor.zoomIn")}
             >
               <Plus className="h-4 w-4" />
             </button>
@@ -263,7 +264,7 @@ export function EditorStudio() {
             <button
               onClick={() => setZoomClamped(1)}
               className="grid h-8 w-8 place-items-center rounded-full text-plum-500 hover:bg-blush-50 hover:text-rose-600"
-              aria-label="Reset zoom"
+              aria-label={t("editor.resetZoom")}
             >
               <Maximize className="h-4 w-4" />
             </button>
@@ -271,7 +272,7 @@ export function EditorStudio() {
 
           {/* mobile library hint */}
           <div className="absolute left-1/2 top-3 z-20 -translate-x-1/2 rounded-full bg-plum-900/80 px-3 py-1 text-[0.65rem] text-white md:hidden">
-            Open on desktop for the full library
+            {t("editor.mobileHint")}
           </div>
         </section>
 

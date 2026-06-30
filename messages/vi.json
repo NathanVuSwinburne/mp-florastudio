@@ -1,0 +1,493 @@
+{
+  "metadata": {
+    "title": "MP FloraStudio — Thiết kế khu vườn mơ ước từ một tấm ảnh",
+    "description": "Studio trực quan không cần code dành cho khu vườn và không gian sống. Chỉnh sửa không gian thật của bạn, thêm hoa, cây, chậu, tượng, dây leo, đèn, nội thất và đồ trang trí — rồi chăm sóc những cây thật mà bạn đã thổi hồn vào.",
+    "dashboard": "Bảng điều khiển · MP FloraStudio",
+    "plantDetail": "Chi tiết cây · MP FloraStudio",
+    "photoCheck": "Kiểm tra sức khỏe qua ảnh · MP FloraStudio",
+    "editor": "Trình chỉnh sửa · MP FloraStudio"
+  },
+  "brand": {
+    "tagline": "Thiết kế · Vun trồng · Nở hoa"
+  },
+  "nav": {
+    "dashboard": "Bảng điều khiển",
+    "newDesign": "Thiết kế mới",
+    "editor": "Trình chỉnh sửa",
+    "plantCare": "Chăm sóc cây",
+    "startDesigning": "Bắt đầu thiết kế",
+    "toggleMenu": "Mở/đóng menu",
+    "language": "Ngôn ngữ"
+  },
+  "footer": {
+    "tagline": "Studio trực quan không cần code dành cho khu vườn và không gian sống. Thiết kế không gian thật của bạn, rồi chăm sóc những cây bạn đã thổi hồn vào.",
+    "studio": "Studio",
+    "garden": "Khu vườn",
+    "about": "Giới thiệu",
+    "links": {
+      "dashboard": "Bảng điều khiển",
+      "newDesign": "Thiết kế mới",
+      "editorDemo": "Demo trình chỉnh sửa",
+      "plantCare": "Chăm sóc cây",
+      "plantDetail": "Chi tiết cây",
+      "photoCheck": "Kiểm tra sức khỏe qua ảnh",
+      "previewDesign": "Xem trước thiết kế",
+      "home": "Trang chủ"
+    },
+    "copyright": "© {year} MP FloraStudio · Bản mẫu demo frontend",
+    "phase": "Giai đoạn 1 · Chưa có backend · Toàn bộ dữ liệu là giả lập"
+  },
+  "home": {
+    "heroBadge": "Studio làm vườn trực quan, không cần code",
+    "heroTitleLine1": "Thiết kế khu vườn",
+    "heroTitleGarden": "mơ ước",
+    "heroTitleHighlight": "từ một tấm ảnh.",
+    "heroSubtitle": "MP FloraStudio là studio trực quan không cần code dành cho khu vườn và không gian sống. Chỉnh sửa không gian thật của bạn, thêm hoa, cây, chậu, tượng, dây leo, đèn, nội thất và đồ trang trí — rồi chăm sóc những cây thật mà bạn đã thổi hồn vào.",
+    "startDesigning": "Bắt đầu thiết kế",
+    "viewDemo": "Xem demo",
+    "statPieces": "Hơn 35 vật trang trí",
+    "statCare": "Chăm sóc cây trực tiếp",
+    "studiosEyebrow": "Hai studio, một sắc hoa",
+    "studiosTitle": "Hình dung, rồi vun trồng",
+    "featureDesignEyebrow": "Trình thiết kế trực quan",
+    "featureDesignTitle": "Một Canva cho không gian thật của bạn",
+    "featureDesignText": "Tải lên ảnh khu vườn hay căn phòng của bạn, rồi kéo thả cây, chậu, dây leo, tượng, đèn và nội thất vào. Thay đổi kích thước, xoay, xếp lớp và xem trước — tất cả ngay trên trình duyệt, không cần kỹ năng thiết kế.",
+    "featureDesignBullet1": "Tìm kiếm & duyệt theo danh mục",
+    "featureDesignBullet2": "Kéo · đổi cỡ · xoay · nhân bản",
+    "featureDesignBullet3": "Chi phí & danh sách mua sắm trực tiếp",
+    "featureDesignCta": "Mở trình chỉnh sửa",
+    "featureCareEyebrow": "Theo dõi sức khỏe cây",
+    "featureCareTitle": "Chăm cây như một trò chơi ấm áp",
+    "featureCareText": "Mỗi cây bạn đặt vào sẽ trở thành một người bạn đồng hành. Tưới nước, cho nắng, bón phân và phun sương để cây luôn xanh tốt — và chạy thử kiểm tra sức khỏe bằng AI qua ảnh bất cứ khi nào bạn băn khoăn.",
+    "featureCareBullet1": "Hình đại diện đáng yêu, cấp độ & sức khỏe",
+    "featureCareBullet2": "Chỉ số độ ẩm · ánh nắng · tăng trưởng",
+    "featureCareBullet3": "Kiểm tra sức khỏe qua ảnh bằng AI (demo)",
+    "featureCareCta": "Vào khu vườn",
+    "step1Title": "Bắt đầu từ không gian của bạn",
+    "step1Text": "Chọn một ảnh mẫu hoặc tải lên ảnh khu vườn, ban công, sân trong hay phòng khách của riêng bạn.",
+    "step2Title": "Kéo vẻ đẹp vào",
+    "step2Text": "Tìm trong hàng trăm loại cây, chậu, đèn và đồ nội thất. Kéo, đổi cỡ, xoay — không cần kỹ năng nào.",
+    "step3Title": "Vun trồng những gì bạn đã gieo",
+    "step3Text": "Theo dõi những cây thật trong thiết kế của bạn tại một studio chăm sóc ấm áp như trò chơi.",
+    "libraryBadge": "Thư viện tuyển chọn",
+    "libraryTitle": "Mọi thứ để tô điểm không gian",
+    "libraryText": "Từ hoa mẫu đơn đến đèn cây — một bộ sưu tập vẽ tay trải khắp mười hai danh mục, sẵn sàng để kéo lên khung vẽ của bạn.",
+    "careTeaserTitle": "Rồi ngắm chúng tươi tốt",
+    "careTeaserText": "Thiết kế chưa phải là vạch đích. Mỗi cây trở thành một người bạn với cấp độ, điểm sức khỏe và một chút cá tính. Hãy chăm sóc chúng bằng những thao tác chỉ một chạm thật thú vị.",
+    "careWater": "Tưới nước",
+    "careSunlight": "Ánh nắng",
+    "careFertilise": "Bón phân",
+    "carePhotoCheck": "Kiểm tra ảnh",
+    "meetYourPlants": "Gặp gỡ những cây của bạn",
+    "ctaTitle": "Không gian đẹp nhất của bạn bắt đầu từ đây",
+    "ctaText": "Không cần đăng ký, không cần cài đặt. Mở studio và bắt đầu mơ mộng cùng hoa lá.",
+    "ctaStart": "Bắt đầu thiết kế",
+    "ctaDashboard": "Đến bảng điều khiển"
+  },
+  "editorMockup": {
+    "url": "florastudio.app / san-trong-tho-mong",
+    "editing": "Đang chỉnh sửa",
+    "properties": "Thuộc tính",
+    "size": "Kích thước",
+    "rotate": "Xoay",
+    "opacity": "Độ mờ",
+    "summary": "8 vật · $1,180"
+  },
+  "dashboard": {
+    "welcome": "Chào mừng trở lại 🌸",
+    "title": "Studio của bạn",
+    "subtitle": "Tiếp tục một thiết kế hoặc ghé thăm những cây của bạn. Mọi thứ ở đây là bản demo thân thiện với dữ liệu giả lập.",
+    "newDesign": "Thiết kế mới",
+    "openPlantCare": "Mở chăm sóc cây",
+    "statDesigns": "Thiết kế",
+    "statThriving": "Cây xanh tốt",
+    "statAvgHealth": "Sức khỏe TB",
+    "statValue": "Giá trị bộ sưu tập",
+    "savedDesigns": "Thiết kế đã lưu",
+    "savedDesignsSub": "Tiếp tục từ chỗ bạn đã dừng lại.",
+    "new": "Mới",
+    "openEditor": "Mở trình chỉnh sửa",
+    "items": "{count} vật · {cost}",
+    "startNewDesign": "Bắt đầu thiết kế mới",
+    "fromPhoto": "Từ một tấm ảnh không gian của bạn",
+    "plantCare": "Chăm sóc cây",
+    "plantCareSub": "Nhìn nhanh khu vườn của bạn.",
+    "viewAll": "Xem tất cả"
+  },
+  "newDesign": {
+    "eyebrow": "Thiết kế mới",
+    "title": "Thiết lập không gian của bạn",
+    "subtitle": "Một vài lựa chọn nhanh và chúng tôi sẽ mở trình chỉnh sửa. Tất cả là bản demo frontend — các thiết lập của bạn định hình khung vẽ bạn sẽ thấy.",
+    "basics": "Thông tin cơ bản",
+    "projectName": "Tên dự án",
+    "spaceType": "Loại không gian",
+    "choosePhoto": "Chọn một tấm ảnh",
+    "choosePhotoSub": "Chọn một không gian mẫu hoặc tải lên ảnh của riêng bạn (chỉ xem trước cục bộ — không có gì được tải lên).",
+    "uploadPhoto": "Tải ảnh lên",
+    "yourUpload": "Ảnh của bạn",
+    "stylePrefs": "Phong cách & sở thích",
+    "styleMood": "Tông phong cách",
+    "sunlight": "Ánh nắng",
+    "maintenance": "Mức chăm sóc",
+    "budget": "Ngân sách",
+    "petSafeTitle": "Chỉ cây an toàn cho thú cưng",
+    "petSafeSub": "Lọc bỏ những cây độc với mèo & chó",
+    "summarySpace": "Không gian",
+    "summaryPhoto": "Ảnh",
+    "summaryMood": "Tông",
+    "summarySunlight": "Ánh nắng",
+    "summaryMaintenance": "Mức chăm sóc",
+    "summaryBudget": "Ngân sách",
+    "summaryPetSafe": "An toàn thú cưng",
+    "petSafeYes": "Có 🐾",
+    "petSafeNo": "Không",
+    "untitled": "Chưa đặt tên",
+    "openEditor": "Mở trình chỉnh sửa",
+    "demoHint": "Bản demo mở một sân trong mẫu mà bạn có thể chỉnh sửa thỏa thích.",
+    "defaultName": "Không gian mơ ước của tôi",
+    "moods": {
+      "Romantic": "Lãng mạn",
+      "Modern Luxe": "Sang trọng hiện đại",
+      "Cottagecore": "Đồng quê mộc mạc",
+      "Mediterranean": "Địa Trung Hải",
+      "Minimal Zen": "Tối giản thiền",
+      "Wild Garden": "Vườn hoang dã"
+    },
+    "maintenanceLevels": {
+      "Low": "Thấp",
+      "Medium": "Vừa",
+      "High": "Cao"
+    },
+    "sunlightLevels": {
+      "Full sun": "Nắng đầy đủ",
+      "Partial shade": "Bóng râm một phần",
+      "Low light": "Ánh sáng yếu"
+    }
+  },
+  "plants": {
+    "gardenLevel": "Khu vườn cấp {level}",
+    "yourGarden": "Khu vườn của bạn",
+    "plantsInCare": "{count} cây bạn đang chăm",
+    "registerPlant": "Đăng ký cây",
+    "registerTitle": "Đăng ký một cây",
+    "registerDesc": "Thêm một người bạn vào khu vườn. (Giả lập — chọn một cây khởi đầu bên dưới.)",
+    "cancel": "Hủy",
+    "photoCheck": "Kiểm tra ảnh",
+    "tip": "Chạm các nút chăm sóc trên mỗi cây để tưới nước, cho nắng, bón phân và phun sương — chỉ số cập nhật trực tiếp và cây của bạn lên cấp. Nhấp vào một cây để xem đầy đủ chi tiết.",
+    "health": "sức khỏe",
+    "statusThriving": "Xanh tốt",
+    "statusOkay": "Khá ổn",
+    "statusNeeds": "Cần chăm sóc",
+    "newArrival": "Vừa mới đến",
+    "justNow": "Vừa xong",
+    "registered": "Đã đăng ký",
+    "joinedToast": "{name} đã gia nhập khu vườn của bạn! 🌸",
+    "careToast": "{action} · {name} thấy khỏe hơn rồi!",
+    "levelUpToast": "🎉 {name} đã đạt Cấp {level}!"
+  },
+  "plantCard": {
+    "level": "Cấp {level}",
+    "health": "Sức khỏe",
+    "value": "Giá trị",
+    "xpToNext": "EXP lên Cấp {level}",
+    "water": "Nước",
+    "sun": "Nắng",
+    "feed": "Phân",
+    "growth": "Tăng trưởng"
+  },
+  "plantDetail": {
+    "allPlants": "Tất cả cây",
+    "since": "Từ {date}",
+    "figureLevel": "Cấp độ",
+    "figureHealth": "Sức khỏe",
+    "figureValue": "Giá trị",
+    "levelLine": "Cấp {level}",
+    "xpLine": "{xp}/100 EXP",
+    "careActions": "Thao tác chăm sóc",
+    "takePhotoCheck": "Kiểm tra sức khỏe qua ảnh",
+    "vitalStats": "Chỉ số sống còn",
+    "careTimeline": "Dòng thời gian chăm sóc",
+    "stats": {
+      "hydration": "Độ ẩm",
+      "sunlight": "Ánh nắng",
+      "fertiliser": "Dinh dưỡng",
+      "growth": "Tăng trưởng",
+      "leafColour": "Màu lá",
+      "stress": "Mức căng thẳng"
+    }
+  },
+  "careActions": {
+    "water": {
+      "label": "Tưới nước",
+      "toast": "{name} thấy sảng khoái hẳn!"
+    },
+    "sunlight": {
+      "label": "Cho nắng",
+      "toast": "{name} đang tắm nắng thỏa thích!"
+    },
+    "fertilise": {
+      "label": "Bón phân",
+      "toast": "{name} được no đủ và đang lớn lên!"
+    },
+    "mist": {
+      "label": "Phun sương lá",
+      "toast": "{name} rất thích làn sương dịu nhẹ!"
+    },
+    "shortWater": "Nước",
+    "shortSunlight": "Nắng",
+    "shortFertilise": "Phân",
+    "shortMist": "Sương"
+  },
+  "photoCheck": {
+    "backToPlant": "Quay lại cây",
+    "badge": "Demo · AI giả lập",
+    "title": "Kiểm tra sức khỏe qua ảnh",
+    "subtitlePre": "Chụp hoặc tải lên một tấm ảnh và studio sẽ chạy một lượt kiểm tra trực quan thân thiện. Đây là một ",
+    "subtitleStrong": "bản demo frontend",
+    "subtitlePost": " — không có AI thật hay máy chủ nào tham gia, kết quả là mô phỏng.",
+    "uploadOrTake": "Tải lên hoặc chụp một tấm ảnh",
+    "fileHint": "PNG / JPG · chỉ xem trước cục bộ",
+    "analysing": "Đang phân tích…",
+    "choosePhoto": "Chọn ảnh",
+    "orSample": "…hoặc thử một ảnh mẫu",
+    "runScan": "Chạy quét demo",
+    "scanning": "Đang quét…",
+    "scanAnother": "Quét ảnh khác",
+    "resultsPlaceholder": "Kết quả quét demo của bạn sẽ hiện ở đây.",
+    "noticeStrong": "Lưu ý demo:",
+    "noticeText": " kết quả được chọn ngẫu nhiên từ dữ liệu giả lập để minh họa trải nghiệm. Không có ảnh nào rời khỏi trình duyệt của bạn và không có mô hình AI nào được gọi.",
+    "confidence": "Độ tin cậy {value}% · mô phỏng",
+    "recommendedCare": "Khuyến nghị chăm sóc"
+  },
+  "editor": {
+    "backToDashboard": "Quay lại bảng điều khiển",
+    "projectName": "Khu nghỉ sân trong Tuscan",
+    "autoSaved": "{space} · Tự động lưu (demo)",
+    "items": "{count} vật",
+    "clear": "Xóa hết",
+    "preview": "Xem trước",
+    "canvasEmpty": "Khung vẽ của bạn đang trống",
+    "canvasEmptyHint": "Thêm vật từ thư viện để bắt đầu.",
+    "mobileHint": "Mở trên máy tính để dùng đầy đủ thư viện",
+    "addedToast": "Đã thêm {name}",
+    "duplicatedToast": "Đã nhân bản",
+    "removedToast": "Đã xóa",
+    "clearedToast": "Đã dọn sạch khung vẽ",
+    "zoomOut": "Thu nhỏ",
+    "zoomIn": "Phóng to",
+    "resetZoom": "Đặt lại thu phóng",
+    "library": "Thư viện",
+    "libraryHint": "Nhấp một vật để thêm vào không gian của bạn.",
+    "searchPlaceholder": "Tìm cây, chậu, đèn…",
+    "all": "Tất cả",
+    "noMatch": "Không có vật nào khớp với “{query}”.",
+    "properties": "Thuộc tính",
+    "fineTune": "Tinh chỉnh vật đang chọn.",
+    "nothingSelected": "Chưa chọn gì.",
+    "selectHint": "Chọn một vật trên khung vẽ để chỉnh kích thước, độ xoay và nhiều hơn nữa.",
+    "backgroundSpace": "Không gian nền",
+    "tip1": "💡 Mẹo: kéo vật trực tiếp từ thư viện.",
+    "tip2": "🔁 Dùng nút xoay trên vật đang chọn để quay nó.",
+    "tip3": "🔍 Thu phóng bằng các nút ở góc dưới bên phải.",
+    "size": "Kích thước",
+    "rotation": "Độ xoay",
+    "opacity": "Độ mờ",
+    "flip": "Lật",
+    "duplicate": "Nhân bản",
+    "forward": "Lên trước",
+    "backward": "Xuống sau",
+    "deletePiece": "Xóa vật",
+    "rotate15": "Xoay 15°",
+    "deleteTitle": "Xóa"
+  },
+  "preview": {
+    "backToEditor": "Quay lại trình chỉnh sửa",
+    "share": "Chia sẻ",
+    "export": "Xuất",
+    "demoOnly": "Chỉ là demo",
+    "finalPreview": "Bản xem trước cuối cùng",
+    "piecesPlaced": "Đã đặt {count} vật",
+    "livingPlants": "{count} cây sống",
+    "shoppingTitle": "Danh sách mua sắm & trang trí",
+    "shoppingSub": "Mọi thứ trong thiết kế của bạn, sẵn sàng để tìm mua.",
+    "noPieces": "Chưa có vật nào.",
+    "estimatedTotal": "Tổng ước tính",
+    "trackPlants": "Theo dõi những cây này",
+    "trackPlantsHint": "Chuyển những cây sống của bạn vào studio chăm sóc.",
+    "inThisDesign": "Trong thiết kế này"
+  },
+  "categories": {
+    "Flowers": "Hoa",
+    "Plants": "Cây",
+    "Pots": "Chậu",
+    "Vines": "Dây leo",
+    "Stones": "Đá",
+    "Statues": "Tượng",
+    "Lighting": "Đèn",
+    "Benches": "Ghế băng",
+    "Outdoor furniture": "Nội thất ngoài trời",
+    "Indoor furniture": "Nội thất trong nhà",
+    "Wall decor": "Trang trí tường",
+    "Living room decor": "Trang trí phòng khách"
+  },
+  "spaceTypes": {
+    "Garden": "Khu vườn",
+    "Balcony": "Ban công",
+    "Backyard": "Sân sau",
+    "Courtyard": "Sân trong",
+    "Living room": "Phòng khách",
+    "Indoor corner": "Góc trong nhà"
+  },
+  "projectStatus": {
+    "Draft": "Bản nháp",
+    "In progress": "Đang thực hiện",
+    "Ready": "Sẵn sàng"
+  },
+  "components": {
+    "f-rose": { "name": "Hoa hồng vườn", "note": "Hoa hồng phớt cổ điển với cành đầy gai." },
+    "f-tulip": { "name": "Khóm tulip", "note": "Tulip mùa xuân sắc hồng dịu." },
+    "f-peony": { "name": "Mẫu đơn nở rộ", "note": "Mẫu đơn nhiều lớp cánh đầy đặn." },
+    "f-lavender": { "name": "Chậu oải hương", "note": "Thơm dịu, thân thiện với loài thụ phấn." },
+    "f-hydrangea": { "name": "Cẩm tú cầu", "note": "Những chùm hoa bồng bềnh như mây." },
+    "p-monstera": { "name": "Trầu bà Nam Mỹ", "note": "Tán lá xẻ thùy nổi bật." },
+    "p-fiddle": { "name": "Bàng Singapore", "note": "Cây dáng điêu khắc thanh lịch." },
+    "p-snake": { "name": "Lưỡi hổ", "note": "Đường nét kiến trúc gần như không thể chết." },
+    "p-pothos": { "name": "Trầu bà vàng", "note": "Lá hình tim buông rủ." },
+    "p-fern": { "name": "Dương xỉ Boston", "note": "Mềm mại, lông tơ và xum xuê." },
+    "p-succulent": { "name": "Sen đá Echeveria", "note": "Sen đá dạng hoa hồng, ưa nắng." },
+    "p-palm": { "name": "Cau cảnh", "note": "Tàu lá phong cách nghỉ dưỡng." },
+    "po-terra": { "name": "Chậu đất nung", "note": "Đất nung cổ điển ấm áp." },
+    "po-ceramic": { "name": "Chậu sứ hồng phớt", "note": "Sứ tráng men màu hồng." },
+    "po-tall": { "name": "Chậu trụ cao", "note": "Chậu trụ đứng sàn." },
+    "v-vine": { "name": "Dây leo", "note": "Buông rủ tuyệt đẹp trên tường." },
+    "v-ivy": { "name": "Thường xuân Anh", "note": "Thường xuân buông rủ mảnh mai." },
+    "s-stone": { "name": "Đá điểm nhấn", "note": "Tảng đá vườn dáng điêu khắc." },
+    "s-pebbles": { "name": "Bộ sỏi", "note": "Sỏi trang trí trải nền." },
+    "st-statue": { "name": "Tượng vườn", "note": "Tượng đá vượt thời gian." },
+    "st-fountain": { "name": "Đài phun nước tầng", "note": "Tiểu cảnh nước nhẹ nhàng." },
+    "l-lantern": { "name": "Đèn lồng treo", "note": "Ánh sáng ấm áp lan tỏa." },
+    "l-string": { "name": "Đèn dây trang trí", "note": "Đèn dây phong cách quán cà phê." },
+    "l-floor": { "name": "Đèn sàn vòng cung", "note": "Đèn nội thất ấn tượng." },
+    "b-bench": { "name": "Ghế băng gỗ", "note": "Chỗ ngồi cho hai người trong vườn." },
+    "of-chair": { "name": "Ghế ngoài trời", "note": "Ghế thư giãn chịu được thời tiết." },
+    "if-sofa": { "name": "Sofa vải lanh", "note": "Sofa ba chỗ ngồi màu hồng phớt." },
+    "if-armchair": { "name": "Ghế bành điểm nhấn", "note": "Ghế đọc sách ấm cúng." },
+    "if-coffee": { "name": "Bàn cà phê", "note": "Mặt gỗ sồi tròn." },
+    "wd-frame": { "name": "Tranh thực vật", "note": "Hoa ép trong khung." },
+    "wd-mirror": { "name": "Gương vòm", "note": "Gương vòm khung vàng." },
+    "wd-shelf": { "name": "Kệ cây", "note": "Kệ trưng bày treo nổi." },
+    "lr-cushion": { "name": "Gối nhung", "note": "Gối điểm nhấn màu hồng mềm mại." },
+    "lr-vase": { "name": "Bình hoa tươi", "note": "Hoa theo mùa bó tay." },
+    "lr-rug": { "name": "Thảm hồng phớt", "note": "Điểm tựa êm dưới chân." }
+  },
+  "spaces": {
+    "sp-courtyard": "Sân trong ngập nắng",
+    "sp-garden": "Vườn hồng",
+    "sp-balcony": "Ban công phố thị",
+    "sp-backyard": "Sân sau xanh mát",
+    "sp-living": "Phòng khách vải lanh",
+    "sp-corner": "Góc đọc sách"
+  },
+  "projects": {
+    "pr-courtyard": { "name": "Khu nghỉ sân trong Tuscan", "style": "Địa Trung Hải lãng mạn", "updatedAt": "2 ngày trước" },
+    "pr-balcony": { "name": "Vườn ban công Paris", "style": "Đồng quê mộc mạc dịu nhẹ", "updatedAt": "5 ngày trước" },
+    "pr-living": { "name": "Làm mới phòng khách hồng phớt", "style": "Sang trọng hiện đại", "updatedAt": "1 tuần trước" },
+    "pr-backyard": { "name": "Sân sau rực rỡ sắc hoa", "style": "Vườn Anh hoang dã", "updatedAt": "2 tuần trước" }
+  },
+  "gardenPlants": {
+    "monstera": {
+      "species": "Trầu bà Nam Mỹ",
+      "room": "Phòng khách",
+      "acquired": "Th3 2024",
+      "timeline": { "t1": "Đã tưới nước", "t2": "Kiểm tra sức khỏe đạt", "t3": "Đã bón phân", "t4": "Lá mới bung ra" },
+      "when": { "t1": "Hôm nay, 8:10", "t2": "Hôm qua", "t3": "4 ngày trước", "t4": "1 tuần trước" }
+    },
+    "peony": {
+      "species": "Mẫu đơn vườn",
+      "room": "Sân trong",
+      "acquired": "Th9 2024",
+      "timeline": { "t1": "Đã phun sương lá", "t2": "Chuyển đến chỗ sáng hơn", "t3": "Đã tưới nước" },
+      "when": { "t1": "Hôm nay, 9:30", "t2": "3 ngày trước", "t3": "5 ngày trước" }
+    },
+    "fiddle": {
+      "species": "Bàng Singapore",
+      "room": "Góc đọc sách",
+      "acquired": "Th1 2025",
+      "timeline": { "t1": "Phát hiện rụng lá", "t2": "Đã tưới nước", "t3": "Đã thay chậu" },
+      "when": { "t1": "Hôm qua", "t2": "6 ngày trước", "t3": "3 tuần trước" }
+    },
+    "lavender": {
+      "species": "Oải hương Pháp",
+      "room": "Ban công",
+      "acquired": "Th11 2024",
+      "timeline": { "t1": "Đã cho nắng", "t2": "Đã tỉa cành", "t3": "Đã bón phân" },
+      "when": { "t1": "Hôm nay, 7:45", "t2": "1 tuần trước", "t3": "2 tuần trước" }
+    },
+    "succulent": {
+      "species": "Sen đá Echeveria",
+      "room": "Bệ cửa bếp",
+      "acquired": "Th2 2025",
+      "timeline": { "t1": "Kiểm tra sức khỏe đạt", "t2": "Đã tưới nước (nhẹ)" },
+      "when": { "t1": "2 ngày trước", "t2": "1 tuần trước" }
+    },
+    "fern": {
+      "species": "Dương xỉ Boston",
+      "room": "Phòng tắm",
+      "acquired": "Th12 2024",
+      "timeline": { "t1": "Đã phun sương lá", "t2": "Đã tưới nước" },
+      "when": { "t1": "Hôm qua", "t2": "4 ngày trước" }
+    }
+  },
+  "registerable": {
+    "palm": { "name": "Coco", "species": "Cau cảnh" },
+    "tulip": { "name": "Bộ ba Tulip", "species": "Tulip vườn" },
+    "hydrangea": { "name": "Hattie", "species": "Cẩm tú cầu" },
+    "ivy": { "name": "Vinny", "species": "Thường xuân Anh" },
+    "pothos": { "name": "Goldie", "species": "Trầu bà vàng" }
+  },
+  "aiScans": {
+    "thriving": {
+      "verdict": "Khỏe mạnh & xanh tốt",
+      "highlights": [
+        { "label": "Màu lá", "value": "Xanh tươi rực rỡ", "tone": "good" },
+        { "label": "Độ ẩm", "value": "Đủ nước", "tone": "good" },
+        { "label": "Sâu bệnh", "value": "Không phát hiện", "tone": "good" },
+        { "label": "Chồi mới", "value": "Đang hình thành 2 nụ", "tone": "good" }
+      ],
+      "recommendations": [
+        "Giữ nhịp tưới hiện tại — đang phát huy rất tốt.",
+        "Mỗi tuần xoay chậu một phần tư vòng để cây lớn đều.",
+        "Cân nhắc bón nhẹ sau 2 tuần để nuôi nụ mới."
+      ]
+    },
+    "okay": {
+      "verdict": "Hơi khát nước",
+      "highlights": [
+        { "label": "Màu lá", "value": "Phần lớn còn xanh", "tone": "good" },
+        { "label": "Độ ẩm", "value": "Hơi thấp", "tone": "watch" },
+        { "label": "Đất", "value": "Khô ở lớp mặt", "tone": "watch" },
+        { "label": "Sâu bệnh", "value": "Không phát hiện", "tone": "good" }
+      ],
+      "recommendations": [
+        "Tưới đẫm hôm nay và kiểm tra độ ẩm đất sau 3 ngày.",
+        "Phun sương lá để tăng độ ẩm quanh cây.",
+        "Dời cây ra xa nắng chiều chiếu trực tiếp một chút."
+      ]
+    },
+    "needs": {
+      "verdict": "Cần một chút yêu thương",
+      "highlights": [
+        { "label": "Màu lá", "value": "Hơi ngả vàng", "tone": "alert" },
+        { "label": "Độ ẩm", "value": "Thiếu nước", "tone": "alert" },
+        { "label": "Ánh sáng", "value": "Quá yếu", "tone": "watch" },
+        { "label": "Sâu bệnh", "value": "Không phát hiện", "tone": "good" }
+      ],
+      "recommendations": [
+        "Tưới thật kỹ và để nước thừa thoát hết.",
+        "Chuyển đến chỗ sáng hơn với ánh sáng gián tiếp.",
+        "Tỉa 1–2 lá vàng để dồn năng lượng cho cây.",
+        "Quét lại sau 5 ngày để theo dõi phục hồi."
+      ]
+    }
+  }
+}

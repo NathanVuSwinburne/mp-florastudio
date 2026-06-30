@@ -1,8 +1,36 @@
-import Link from "next/link";
+import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
 import { Logo } from "@/components/brand";
 import { FloralDivider } from "@/components/decorations";
 
 export function SiteFooter() {
+  const t = useTranslations();
+  const columns = [
+    {
+      title: t("footer.studio"),
+      links: [
+        [t("footer.links.dashboard"), "/dashboard"],
+        [t("footer.links.newDesign"), "/design/new"],
+        [t("footer.links.editorDemo"), "/design/demo/editor"],
+      ],
+    },
+    {
+      title: t("footer.garden"),
+      links: [
+        [t("footer.links.plantCare"), "/plants"],
+        [t("footer.links.plantDetail"), "/plants/demo"],
+        [t("footer.links.photoCheck"), "/plants/demo/photo-check"],
+      ],
+    },
+    {
+      title: t("footer.about"),
+      links: [
+        [t("footer.links.previewDesign"), "/design/demo/preview"],
+        [t("footer.links.home"), "/"],
+      ],
+    },
+  ] as const;
+
   return (
     <footer className="relative mt-24 border-t border-blush-200/70 bg-gradient-to-b from-transparent to-blush-50/60">
       <div className="mx-auto max-w-7xl px-5 py-14 sm:px-8">
@@ -11,15 +39,10 @@ export function SiteFooter() {
           <div>
             <Logo />
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-plum-500">
-              A no-code visual studio for gardens and home spaces. Design your
-              real space, then care for the plants you bring to life.
+              {t("footer.tagline")}
             </p>
           </div>
-          {[
-            { title: "Studio", links: [["Dashboard", "/dashboard"], ["New design", "/design/new"], ["Editor demo", "/design/demo/editor"]] },
-            { title: "Garden", links: [["Plant care", "/plants"], ["Plant detail", "/plants/demo"], ["Photo health check", "/plants/demo/photo-check"]] },
-            { title: "About", links: [["Preview design", "/design/demo/preview"], ["Home", "/"]] },
-          ].map((col) => (
+          {columns.map((col) => (
             <div key={col.title}>
               <h4 className="text-sm font-semibold uppercase tracking-wider text-rose-600">
                 {col.title}
@@ -40,9 +63,9 @@ export function SiteFooter() {
           ))}
         </div>
         <div className="mt-12 flex flex-col items-center justify-between gap-3 border-t border-blush-200/60 pt-6 text-xs text-plum-400 sm:flex-row">
-          <p>© {new Date().getFullYear()} MP FloraStudio · Frontend demo prototype</p>
+          <p>{t("footer.copyright", { year: new Date().getFullYear() })}</p>
           <p className="rounded-full bg-blush-100 px-3 py-1 text-rose-600">
-            Phase 1 · No backend · All data is mock
+            {t("footer.phase")}
           </p>
         </div>
       </div>

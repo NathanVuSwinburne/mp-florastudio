@@ -1,0 +1,493 @@
+{
+  "metadata": {
+    "title": "MP FloraStudio — Design your dream garden from a photo",
+    "description": "A no-code visual studio for gardens and home spaces. Edit your real space, add flowers, plants, pots, statues, vines, lighting, furniture, and decor — then care for the real plants you bring to life.",
+    "dashboard": "Dashboard · MP FloraStudio",
+    "plantDetail": "Plant detail · MP FloraStudio",
+    "photoCheck": "Photo health check · MP FloraStudio",
+    "editor": "Editor · MP FloraStudio"
+  },
+  "brand": {
+    "tagline": "Design · Grow · Bloom"
+  },
+  "nav": {
+    "dashboard": "Dashboard",
+    "newDesign": "New design",
+    "editor": "Editor",
+    "plantCare": "Plant care",
+    "startDesigning": "Start designing",
+    "toggleMenu": "Toggle menu",
+    "language": "Language"
+  },
+  "footer": {
+    "tagline": "A no-code visual studio for gardens and home spaces. Design your real space, then care for the plants you bring to life.",
+    "studio": "Studio",
+    "garden": "Garden",
+    "about": "About",
+    "links": {
+      "dashboard": "Dashboard",
+      "newDesign": "New design",
+      "editorDemo": "Editor demo",
+      "plantCare": "Plant care",
+      "plantDetail": "Plant detail",
+      "photoCheck": "Photo health check",
+      "previewDesign": "Preview design",
+      "home": "Home"
+    },
+    "copyright": "© {year} MP FloraStudio · Frontend demo prototype",
+    "phase": "Phase 1 · No backend · All data is mock"
+  },
+  "home": {
+    "heroBadge": "No-code visual garden studio",
+    "heroTitleLine1": "Design your dream",
+    "heroTitleGarden": "garden",
+    "heroTitleHighlight": "from a photo.",
+    "heroSubtitle": "MP FloraStudio is a no-code visual studio for gardens and home spaces. Edit your real space, add flowers, plants, pots, statues, vines, lighting, furniture and decor — then care for the real plants you bring to life.",
+    "startDesigning": "Start designing",
+    "viewDemo": "View demo",
+    "statPieces": "35+ design pieces",
+    "statCare": "Live plant care",
+    "studiosEyebrow": "Two studios, one bloom",
+    "studiosTitle": "Imagine it, then grow it",
+    "featureDesignEyebrow": "Visual design editor",
+    "featureDesignTitle": "A Canva for your real space",
+    "featureDesignText": "Upload your garden or room, then drag in plants, pots, vines, statues, lighting and furniture. Resize, rotate, layer and preview — all in the browser, no design skills required.",
+    "featureDesignBullet1": "Search & browse categories",
+    "featureDesignBullet2": "Drag · resize · rotate · duplicate",
+    "featureDesignBullet3": "Live cost & shopping list",
+    "featureDesignCta": "Open the editor",
+    "featureCareEyebrow": "Plant health monitor",
+    "featureCareTitle": "Care for plants like a cosy game",
+    "featureCareText": "Every plant you place becomes a living companion. Water, give sunlight, fertilise and mist to keep them thriving — and run a demo AI photo check whenever you're unsure.",
+    "featureCareBullet1": "Cute avatars, levels & health",
+    "featureCareBullet2": "Hydration · sunlight · growth stats",
+    "featureCareBullet3": "Demo AI photo health check",
+    "featureCareCta": "Enter the garden",
+    "step1Title": "Start from your space",
+    "step1Text": "Pick a sample photo or upload your own garden, balcony, courtyard or living room.",
+    "step2Title": "Drag in the beauty",
+    "step2Text": "Search hundreds of plants, pots, lights and furnishings. Drag, resize, rotate — no skills needed.",
+    "step3Title": "Grow what you planted",
+    "step3Text": "Track the real plants from your design in a cosy, game-like care studio.",
+    "libraryBadge": "Curated library",
+    "libraryTitle": "Everything to style a space",
+    "libraryText": "From peonies to floor lamps — a hand-illustrated collection across twelve categories, ready to drag onto your canvas.",
+    "careTeaserTitle": "Then watch them flourish",
+    "careTeaserText": "Your design isn't the finish line. Every plant becomes a companion with a level, a health score and a little personality. Tend to them with delightful one-tap care.",
+    "careWater": "Water",
+    "careSunlight": "Sunlight",
+    "careFertilise": "Fertilise",
+    "carePhotoCheck": "Photo check",
+    "meetYourPlants": "Meet your plants",
+    "ctaTitle": "Your most beautiful space starts here",
+    "ctaText": "No sign-up, no setup. Open the studio and start dreaming in flowers.",
+    "ctaStart": "Start designing",
+    "ctaDashboard": "Go to dashboard"
+  },
+  "editorMockup": {
+    "url": "florastudio.app / courtyard-retreat",
+    "editing": "Editing",
+    "properties": "Properties",
+    "size": "Size",
+    "rotate": "Rotate",
+    "opacity": "Opacity",
+    "summary": "8 items · $1,180"
+  },
+  "dashboard": {
+    "welcome": "Welcome back 🌸",
+    "title": "Your studio",
+    "subtitle": "Pick up a design or check in on your plants. Everything here is a friendly demo with mock data.",
+    "newDesign": "New design",
+    "openPlantCare": "Open plant care",
+    "statDesigns": "Designs",
+    "statThriving": "Plants thriving",
+    "statAvgHealth": "Avg. health",
+    "statValue": "Collection value",
+    "savedDesigns": "Saved designs",
+    "savedDesignsSub": "Continue where you left off.",
+    "new": "New",
+    "openEditor": "Open editor",
+    "items": "{count} items · {cost}",
+    "startNewDesign": "Start a new design",
+    "fromPhoto": "From a photo of your space",
+    "plantCare": "Plant care",
+    "plantCareSub": "A quick look at your garden.",
+    "viewAll": "View all"
+  },
+  "newDesign": {
+    "eyebrow": "New design",
+    "title": "Set up your space",
+    "subtitle": "A few quick choices and we'll open the editor. Everything is a frontend demo — your settings shape the canvas you land on.",
+    "basics": "The basics",
+    "projectName": "Project name",
+    "spaceType": "Space type",
+    "choosePhoto": "Choose a photo",
+    "choosePhotoSub": "Pick a sample space or upload your own (previewed locally — nothing is uploaded).",
+    "uploadPhoto": "Upload photo",
+    "yourUpload": "Your upload",
+    "stylePrefs": "Style & preferences",
+    "styleMood": "Style mood",
+    "sunlight": "Sunlight",
+    "maintenance": "Maintenance",
+    "budget": "Budget",
+    "petSafeTitle": "Pet-safe plants only",
+    "petSafeSub": "Filter out anything toxic to cats & dogs",
+    "summarySpace": "Space",
+    "summaryPhoto": "Photo",
+    "summaryMood": "Mood",
+    "summarySunlight": "Sunlight",
+    "summaryMaintenance": "Maintenance",
+    "summaryBudget": "Budget",
+    "summaryPetSafe": "Pet-safe",
+    "petSafeYes": "Yes 🐾",
+    "petSafeNo": "No",
+    "untitled": "Untitled",
+    "openEditor": "Open editor",
+    "demoHint": "Demo opens a sample courtyard you can fully edit.",
+    "defaultName": "My Dream Space",
+    "moods": {
+      "Romantic": "Romantic",
+      "Modern Luxe": "Modern Luxe",
+      "Cottagecore": "Cottagecore",
+      "Mediterranean": "Mediterranean",
+      "Minimal Zen": "Minimal Zen",
+      "Wild Garden": "Wild Garden"
+    },
+    "maintenanceLevels": {
+      "Low": "Low",
+      "Medium": "Medium",
+      "High": "High"
+    },
+    "sunlightLevels": {
+      "Full sun": "Full sun",
+      "Partial shade": "Partial shade",
+      "Low light": "Low light"
+    }
+  },
+  "plants": {
+    "gardenLevel": "Garden level {level}",
+    "yourGarden": "Your garden",
+    "plantsInCare": "{count} plants in your care",
+    "registerPlant": "Register plant",
+    "registerTitle": "Register a plant",
+    "registerDesc": "Add a companion to your garden. (Mock — pick a starter below.)",
+    "cancel": "Cancel",
+    "photoCheck": "Photo check",
+    "tip": "Tap the care buttons on each plant to water, sun, feed and mist — stats update live and your plants level up. Click a plant for full details.",
+    "health": "health",
+    "statusThriving": "Thriving",
+    "statusOkay": "Doing okay",
+    "statusNeeds": "Needs care",
+    "newArrival": "New arrival",
+    "justNow": "Just now",
+    "registered": "Registered",
+    "joinedToast": "{name} joined your garden! 🌸",
+    "careToast": "{action} · {name} feels better!",
+    "levelUpToast": "🎉 {name} reached Level {level}!"
+  },
+  "plantCard": {
+    "level": "Lv {level}",
+    "health": "Health",
+    "value": "Value",
+    "xpToNext": "XP to Lv {level}",
+    "water": "Water",
+    "sun": "Sun",
+    "feed": "Feed",
+    "growth": "Growth"
+  },
+  "plantDetail": {
+    "allPlants": "All plants",
+    "since": "Since {date}",
+    "figureLevel": "Level",
+    "figureHealth": "Health",
+    "figureValue": "Value",
+    "levelLine": "Level {level}",
+    "xpLine": "{xp}/100 XP",
+    "careActions": "Care actions",
+    "takePhotoCheck": "Take photo health check",
+    "vitalStats": "Vital stats",
+    "careTimeline": "Care timeline",
+    "stats": {
+      "hydration": "Hydration",
+      "sunlight": "Sunlight",
+      "fertiliser": "Fertiliser",
+      "growth": "Growth",
+      "leafColour": "Leaf colour",
+      "stress": "Stress level"
+    }
+  },
+  "careActions": {
+    "water": {
+      "label": "Water",
+      "toast": "{name} feels refreshed!"
+    },
+    "sunlight": {
+      "label": "Give sunlight",
+      "toast": "{name} is soaking up the sun!"
+    },
+    "fertilise": {
+      "label": "Fertilise",
+      "toast": "{name} is well fed and growing!"
+    },
+    "mist": {
+      "label": "Mist leaves",
+      "toast": "{name} loves the gentle mist!"
+    },
+    "shortWater": "Water",
+    "shortSunlight": "Sunlight",
+    "shortFertilise": "Fertilise",
+    "shortMist": "Mist"
+  },
+  "photoCheck": {
+    "backToPlant": "Back to plant",
+    "badge": "Demo · Mock AI",
+    "title": "Photo health check",
+    "subtitlePre": "Snap or upload a photo and our studio runs a friendly visual check. This is a ",
+    "subtitleStrong": "frontend demo",
+    "subtitlePost": " — no real AI or server is involved, results are simulated.",
+    "uploadOrTake": "Upload or take a photo",
+    "fileHint": "PNG / JPG · previewed locally",
+    "analysing": "Analysing…",
+    "choosePhoto": "Choose photo",
+    "orSample": "…or try a sample",
+    "runScan": "Run demo scan",
+    "scanning": "Scanning…",
+    "scanAnother": "Scan another",
+    "resultsPlaceholder": "Your demo scan results will appear here.",
+    "noticeStrong": "Demo notice:",
+    "noticeText": " results are randomly selected from mock data to illustrate the experience. No image leaves your browser and no AI model is called.",
+    "confidence": "Confidence {value}% · simulated",
+    "recommendedCare": "Recommended care"
+  },
+  "editor": {
+    "backToDashboard": "Back to dashboard",
+    "projectName": "Tuscan Courtyard Retreat",
+    "autoSaved": "{space} · Auto-saved (demo)",
+    "items": "{count} items",
+    "clear": "Clear",
+    "preview": "Preview",
+    "canvasEmpty": "Your canvas is empty",
+    "canvasEmptyHint": "Add pieces from the library to begin.",
+    "mobileHint": "Open on desktop for the full library",
+    "addedToast": "{name} added",
+    "duplicatedToast": "Duplicated",
+    "removedToast": "Removed",
+    "clearedToast": "Canvas cleared",
+    "zoomOut": "Zoom out",
+    "zoomIn": "Zoom in",
+    "resetZoom": "Reset zoom",
+    "library": "Library",
+    "libraryHint": "Click a piece to add it to your space.",
+    "searchPlaceholder": "Search plants, pots, lights…",
+    "all": "All",
+    "noMatch": "No pieces match “{query}”.",
+    "properties": "Properties",
+    "fineTune": "Fine-tune the selected piece.",
+    "nothingSelected": "Nothing selected.",
+    "selectHint": "Select a piece on the canvas to edit its size, rotation and more.",
+    "backgroundSpace": "Background space",
+    "tip1": "💡 Tip: drag pieces straight from the library.",
+    "tip2": "🔁 Use the rotate button on a selection to spin it.",
+    "tip3": "🔍 Zoom with the controls at the bottom-right.",
+    "size": "Size",
+    "rotation": "Rotation",
+    "opacity": "Opacity",
+    "flip": "Flip",
+    "duplicate": "Duplicate",
+    "forward": "Forward",
+    "backward": "Backward",
+    "deletePiece": "Delete piece",
+    "rotate15": "Rotate 15°",
+    "deleteTitle": "Delete"
+  },
+  "preview": {
+    "backToEditor": "Back to editor",
+    "share": "Share",
+    "export": "Export",
+    "demoOnly": "Demo only",
+    "finalPreview": "Final preview",
+    "piecesPlaced": "{count} pieces placed",
+    "livingPlants": "{count} living plants",
+    "shoppingTitle": "Shopping & decor list",
+    "shoppingSub": "Everything in your design, ready to source.",
+    "noPieces": "No pieces yet.",
+    "estimatedTotal": "Estimated total",
+    "trackPlants": "Track these plants",
+    "trackPlantsHint": "Move your living plants into the care studio.",
+    "inThisDesign": "In this design"
+  },
+  "categories": {
+    "Flowers": "Flowers",
+    "Plants": "Plants",
+    "Pots": "Pots",
+    "Vines": "Vines",
+    "Stones": "Stones",
+    "Statues": "Statues",
+    "Lighting": "Lighting",
+    "Benches": "Benches",
+    "Outdoor furniture": "Outdoor furniture",
+    "Indoor furniture": "Indoor furniture",
+    "Wall decor": "Wall decor",
+    "Living room decor": "Living room decor"
+  },
+  "spaceTypes": {
+    "Garden": "Garden",
+    "Balcony": "Balcony",
+    "Backyard": "Backyard",
+    "Courtyard": "Courtyard",
+    "Living room": "Living room",
+    "Indoor corner": "Indoor corner"
+  },
+  "projectStatus": {
+    "Draft": "Draft",
+    "In progress": "In progress",
+    "Ready": "Ready"
+  },
+  "components": {
+    "f-rose": { "name": "Garden Rose", "note": "Classic blush rose with thornful stem." },
+    "f-tulip": { "name": "Tulip Cluster", "note": "Spring tulips in soft rose." },
+    "f-peony": { "name": "Peony Bloom", "note": "Lush layered peony." },
+    "f-lavender": { "name": "Lavender Pot", "note": "Fragrant, pollinator-friendly." },
+    "f-hydrangea": { "name": "Hydrangea", "note": "Cloud-like blooms." },
+    "p-monstera": { "name": "Monstera Deliciosa", "note": "Statement split-leaf foliage." },
+    "p-fiddle": { "name": "Fiddle-Leaf Fig", "note": "Elegant sculptural tree." },
+    "p-snake": { "name": "Snake Plant", "note": "Near-unkillable architectural lines." },
+    "p-pothos": { "name": "Golden Pothos", "note": "Trailing heart-shaped leaves." },
+    "p-fern": { "name": "Boston Fern", "note": "Soft, feathery and lush." },
+    "p-succulent": { "name": "Echeveria", "note": "Rosette succulent, sun-loving." },
+    "p-palm": { "name": "Areca Palm", "note": "Resort-style fronds." },
+    "po-terra": { "name": "Terracotta Pot", "note": "Warm classic clay." },
+    "po-ceramic": { "name": "Blush Ceramic Pot", "note": "Glazed rose ceramic." },
+    "po-tall": { "name": "Tall Planter", "note": "Floor-standing column planter." },
+    "v-vine": { "name": "Climbing Vine", "note": "Drapes beautifully over walls." },
+    "v-ivy": { "name": "English Ivy", "note": "Delicate trailing ivy." },
+    "s-stone": { "name": "Feature Stone", "note": "Sculptural garden boulder." },
+    "s-pebbles": { "name": "Pebble Set", "note": "Decorative ground pebbles." },
+    "st-statue": { "name": "Garden Statue", "note": "Timeless stone figure." },
+    "st-fountain": { "name": "Tiered Fountain", "note": "Gentle water feature." },
+    "l-lantern": { "name": "Hanging Lantern", "note": "Warm ambient glow." },
+    "l-string": { "name": "Festoon Lights", "note": "Cafe-style string lights." },
+    "l-floor": { "name": "Arc Floor Lamp", "note": "Statement indoor lighting." },
+    "b-bench": { "name": "Wooden Bench", "note": "Seat for two in the garden." },
+    "of-chair": { "name": "Outdoor Chair", "note": "Weatherproof lounge chair." },
+    "if-sofa": { "name": "Linen Sofa", "note": "Blush three-seater." },
+    "if-armchair": { "name": "Accent Armchair", "note": "Cozy reading chair." },
+    "if-coffee": { "name": "Coffee Table", "note": "Round oak top." },
+    "wd-frame": { "name": "Botanical Print", "note": "Framed pressed flower." },
+    "wd-mirror": { "name": "Arch Mirror", "note": "Gold-framed arch mirror." },
+    "wd-shelf": { "name": "Plant Shelf", "note": "Floating display ledge." },
+    "lr-cushion": { "name": "Velvet Cushion", "note": "Soft rose accent pillow." },
+    "lr-vase": { "name": "Fresh Bouquet Vase", "note": "Hand-tied seasonal stems." },
+    "lr-rug": { "name": "Blush Area Rug", "note": "Soft underfoot anchor." }
+  },
+  "spaces": {
+    "sp-courtyard": "Sunlit Courtyard",
+    "sp-garden": "Rose Garden",
+    "sp-balcony": "City Balcony",
+    "sp-backyard": "Leafy Backyard",
+    "sp-living": "Linen Living Room",
+    "sp-corner": "Reading Corner"
+  },
+  "projects": {
+    "pr-courtyard": { "name": "Tuscan Courtyard Retreat", "style": "Romantic Mediterranean", "updatedAt": "2 days ago" },
+    "pr-balcony": { "name": "Parisian Balcony Garden", "style": "Soft Cottagecore", "updatedAt": "5 days ago" },
+    "pr-living": { "name": "Blush Living Room Refresh", "style": "Modern Luxe", "updatedAt": "1 week ago" },
+    "pr-backyard": { "name": "Backyard Bloom Sanctuary", "style": "Wild English Garden", "updatedAt": "2 weeks ago" }
+  },
+  "gardenPlants": {
+    "monstera": {
+      "species": "Monstera Deliciosa",
+      "room": "Living Room",
+      "acquired": "Mar 2024",
+      "timeline": { "t1": "Watered", "t2": "Health check passed", "t3": "Fertilised", "t4": "New leaf unfurled" },
+      "when": { "t1": "Today, 8:10am", "t2": "Yesterday", "t3": "4 days ago", "t4": "1 week ago" }
+    },
+    "peony": {
+      "species": "Garden Peony",
+      "room": "Courtyard",
+      "acquired": "Sep 2024",
+      "timeline": { "t1": "Misted leaves", "t2": "Moved to brighter spot", "t3": "Watered" },
+      "when": { "t1": "Today, 9:30am", "t2": "3 days ago", "t3": "5 days ago" }
+    },
+    "fiddle": {
+      "species": "Fiddle-Leaf Fig",
+      "room": "Reading Corner",
+      "acquired": "Jan 2025",
+      "timeline": { "t1": "Leaf drop noticed", "t2": "Watered", "t3": "Repotted" },
+      "when": { "t1": "Yesterday", "t2": "6 days ago", "t3": "3 weeks ago" }
+    },
+    "lavender": {
+      "species": "French Lavender",
+      "room": "Balcony",
+      "acquired": "Nov 2024",
+      "timeline": { "t1": "Given sunlight", "t2": "Pruned", "t3": "Fertilised" },
+      "when": { "t1": "Today, 7:45am", "t2": "1 week ago", "t3": "2 weeks ago" }
+    },
+    "succulent": {
+      "species": "Echeveria",
+      "room": "Kitchen Sill",
+      "acquired": "Feb 2025",
+      "timeline": { "t1": "Health check passed", "t2": "Watered (light)" },
+      "when": { "t1": "2 days ago", "t2": "1 week ago" }
+    },
+    "fern": {
+      "species": "Boston Fern",
+      "room": "Bathroom",
+      "acquired": "Dec 2024",
+      "timeline": { "t1": "Misted leaves", "t2": "Watered" },
+      "when": { "t1": "Yesterday", "t2": "4 days ago" }
+    }
+  },
+  "registerable": {
+    "palm": { "name": "Coco", "species": "Areca Palm" },
+    "tulip": { "name": "Tulip Trio", "species": "Garden Tulips" },
+    "hydrangea": { "name": "Hattie", "species": "Hydrangea" },
+    "ivy": { "name": "Vinny", "species": "English Ivy" },
+    "pothos": { "name": "Goldie", "species": "Golden Pothos" }
+  },
+  "aiScans": {
+    "thriving": {
+      "verdict": "Healthy & thriving",
+      "highlights": [
+        { "label": "Leaf colour", "value": "Vibrant green", "tone": "good" },
+        { "label": "Hydration", "value": "Well watered", "tone": "good" },
+        { "label": "Pests", "value": "None detected", "tone": "good" },
+        { "label": "New growth", "value": "2 buds forming", "tone": "good" }
+      ],
+      "recommendations": [
+        "Keep your current watering rhythm — it's working beautifully.",
+        "Rotate the pot a quarter turn weekly for even growth.",
+        "Consider a light feed in 2 weeks to support new buds."
+      ]
+    },
+    "okay": {
+      "verdict": "Slightly thirsty",
+      "highlights": [
+        { "label": "Leaf colour", "value": "Mostly green", "tone": "good" },
+        { "label": "Hydration", "value": "A little low", "tone": "watch" },
+        { "label": "Soil", "value": "Drying near surface", "tone": "watch" },
+        { "label": "Pests", "value": "None detected", "tone": "good" }
+      ],
+      "recommendations": [
+        "Give a deep drink today and check soil moisture in 3 days.",
+        "Mist the leaves to lift humidity around the plant.",
+        "Move slightly away from the direct afternoon sun."
+      ]
+    },
+    "needs": {
+      "verdict": "Needs a little love",
+      "highlights": [
+        { "label": "Leaf colour", "value": "Some yellowing", "tone": "alert" },
+        { "label": "Hydration", "value": "Underwatered", "tone": "alert" },
+        { "label": "Light", "value": "Too low", "tone": "watch" },
+        { "label": "Pests", "value": "None detected", "tone": "good" }
+      ],
+      "recommendations": [
+        "Water thoroughly and let excess drain fully.",
+        "Relocate to a brighter spot with indirect light.",
+        "Trim 1–2 yellowed leaves to redirect energy.",
+        "Re-scan in 5 days to track recovery."
+      ]
+    }
+  }
+}

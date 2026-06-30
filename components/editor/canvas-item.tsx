@@ -1,5 +1,6 @@
 "use client";
 
+import { useTranslations } from "next-intl";
 import { Rnd } from "react-rnd";
 import { Copy, RotateCw, Trash2 } from "lucide-react";
 import { FloraArt } from "@/components/flora-art";
@@ -25,6 +26,7 @@ export function CanvasItemView({
   onDuplicate: () => void;
   onDelete: () => void;
 }) {
+  const t = useTranslations();
   return (
     <Rnd
       size={{ width: item.w, height: item.h }}
@@ -93,21 +95,21 @@ export function CanvasItemView({
             <button
               onClick={(e) => { e.stopPropagation(); onChange({ rotation: (item.rotation + 15) % 360 }); }}
               className="grid h-7 w-7 place-items-center rounded-full text-plum-500 hover:bg-blush-50 hover:text-rose-600"
-              title="Rotate 15°"
+              title={t("editor.rotate15")}
             >
               <RotateCw className="h-3.5 w-3.5" />
             </button>
             <button
               onClick={(e) => { e.stopPropagation(); onDuplicate(); }}
               className="grid h-7 w-7 place-items-center rounded-full text-plum-500 hover:bg-blush-50 hover:text-rose-600"
-              title="Duplicate"
+              title={t("editor.duplicate")}
             >
               <Copy className="h-3.5 w-3.5" />
             </button>
             <button
               onClick={(e) => { e.stopPropagation(); onDelete(); }}
               className="grid h-7 w-7 place-items-center rounded-full text-rose-500 hover:bg-blush-50 hover:text-rose-700"
-              title="Delete"
+              title={t("editor.deleteTitle")}
             >
               <Trash2 className="h-3.5 w-3.5" />
             </button>

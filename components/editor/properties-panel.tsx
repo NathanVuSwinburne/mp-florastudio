@@ -1,5 +1,6 @@
 "use client";
 
+import { useTranslations } from "next-intl";
 import {
   Copy,
   Trash2,
@@ -36,12 +37,13 @@ export function PropertiesPanel({
   onDelete: () => void;
   onLayer: (dir: "up" | "down") => void;
 }) {
+  const t = useTranslations();
   return (
     <div className="flex h-full flex-col">
       <div className="border-b border-blush-200/70 p-4">
-        <h2 className="font-display text-lg text-plum-900">Properties</h2>
+        <h2 className="font-display text-lg text-plum-900">{t("editor.properties")}</h2>
         <p className="text-xs text-plum-400">
-          {item ? "Fine-tune the selected piece." : "Nothing selected."}
+          {item ? t("editor.fineTune") : t("editor.nothingSelected")}
         </p>
       </div>
 
@@ -53,13 +55,13 @@ export function PropertiesPanel({
                 <MousePointer2 className="h-5 w-5" />
               </span>
               <p className="mt-3 text-sm text-plum-500">
-                Select a piece on the canvas to edit its size, rotation and more.
+                {t("editor.selectHint")}
               </p>
             </div>
 
             <div>
               <label className="mb-2 flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-rose-500">
-                <ImageIcon className="h-3.5 w-3.5" /> Background space
+                <ImageIcon className="h-3.5 w-3.5" /> {t("editor.backgroundSpace")}
               </label>
               <Select value={spaceId} onValueChange={onChangeSpace}>
                 <SelectTrigger>
@@ -68,7 +70,7 @@ export function PropertiesPanel({
                 <SelectContent>
                   {SAMPLE_SPACES.map((s) => (
                     <SelectItem key={s.id} value={s.id}>
-                      {s.name} · {s.type}
+                      {t(`spaces.${s.id}`)} · {t(`spaceTypes.${s.type}`)}
                     </SelectItem>
                   ))}
                 </SelectContent>
@@ -76,9 +78,9 @@ export function PropertiesPanel({
             </div>
 
             <ul className="space-y-2 rounded-2xl bg-blush-50/60 p-4 text-xs text-plum-500">
-              <li>💡 Tip: drag pieces straight from the library.</li>
-              <li>🔁 Use the rotate button on a selection to spin it.</li>
-              <li>🔍 Zoom with the controls at the bottom-right.</li>
+              <li>{t("editor.tip1")}</li>
+              <li>{t("editor.tip2")}</li>
+              <li>{t("editor.tip3")}</li>
             </ul>
           </div>
         ) : (
@@ -89,19 +91,19 @@ export function PropertiesPanel({
                 <FloraArt art={def.art} className="h-11 w-11" />
               </div>
               <div className="min-w-0">
-                <p className="truncate font-medium text-plum-900">{def.name}</p>
-                <p className="text-xs text-plum-400">{def.category}</p>
+                <p className="truncate font-medium text-plum-900">{t(`components.${def.id}.name`)}</p>
+                <p className="text-xs text-plum-400">{t(`categories.${def.category}`)}</p>
                 <p className="text-xs font-medium text-rose-600">{formatCurrency(def.price)}</p>
               </div>
             </div>
 
             {def.note && (
               <p className="rounded-xl bg-paper px-3 py-2 text-xs italic text-plum-500">
-                “{def.note}”
+                “{t(`components.${def.id}.note`)}”
               </p>
             )}
 
-            <Control label="Size" value={`${Math.round(item.w)}px`}>
+            <Control label={t("editor.size")} value={`${Math.round(item.w)}px`}>
               <Slider
                 value={[item.w]}
                 min={48}
@@ -114,7 +116,7 @@ export function PropertiesPanel({
               />
             </Control>
 
-            <Control label="Rotation" value={`${item.rotation}°`}>
+            <Control label={t("editor.rotation")} value={`${item.rotation}°`}>
               <Slider
                 value={[item.rotation]}
                 min={0}
@@ -124,7 +126,7 @@ export function PropertiesPanel({
               />
             </Control>
 
-            <Control label="Opacity" value={`${Math.round(item.opacity * 100)}%`}>
+            <Control label={t("editor.opacity")} value={`${Math.round(item.opacity * 100)}%`}>
               <Slider
                 value={[item.opacity * 100]}
                 min={20}
@@ -136,16 +138,16 @@ export function PropertiesPanel({
 
             <div className="grid grid-cols-2 gap-2">
               <Button variant="soft" size="sm" onClick={() => onChange({ flipped: !item.flipped })}>
-                <FlipHorizontal2 className="h-4 w-4" /> Flip
+                <FlipHorizontal2 className="h-4 w-4" /> {t("editor.flip")}
               </Button>
               <Button variant="soft" size="sm" onClick={onDuplicate}>
-                <Copy className="h-4 w-4" /> Duplicate
+                <Copy className="h-4 w-4" /> {t("editor.duplicate")}
               </Button>
               <Button variant="soft" size="sm" onClick={() => onLayer("up")}>
-                <ArrowUp className="h-4 w-4" /> Forward
+                <ArrowUp className="h-4 w-4" /> {t("editor.forward")}
               </Button>
               <Button variant="soft" size="sm" onClick={() => onLayer("down")}>
-                <ArrowDown className="h-4 w-4" /> Backward
+                <ArrowDown className="h-4 w-4" /> {t("editor.backward")}
               </Button>
             </div>
 
@@ -154,7 +156,7 @@ export function PropertiesPanel({
               className="w-full border-rose-200 text-rose-600 hover:border-rose-400 hover:bg-blush-50"
               onClick={onDelete}
             >
-              <Trash2 className="h-4 w-4" /> Delete piece
+              <Trash2 className="h-4 w-4" /> {t("editor.deletePiece")}
             </Button>
           </div>
         )}

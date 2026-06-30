@@ -1,3 +1,4 @@
+import { useTranslations } from "next-intl";
 import {
   Flower2,
   Leaf,
@@ -11,6 +12,7 @@ import { DEMO_DESIGN, DEMO_SPACE_ID } from "@/lib/mock/projects";
 
 /** A static, decorative recreation of the editor — the hero centerpiece. */
 export function EditorMockup() {
+  const t = useTranslations();
   const rail = [Flower2, Leaf, Lightbulb, Armchair, Sparkles];
   return (
     <div className="relative rounded-[var(--radius-xl)] border border-blush-200 bg-paper/90 p-2.5 shadow-[var(--shadow-bloom)] backdrop-blur">
@@ -20,10 +22,10 @@ export function EditorMockup() {
         <span className="h-2.5 w-2.5 rounded-full bg-gold-soft" />
         <span className="h-2.5 w-2.5 rounded-full bg-sage-soft" />
         <div className="ml-3 hidden rounded-full bg-blush-50 px-3 py-1 text-[0.65rem] text-plum-400 sm:block">
-          florastudio.app / courtyard-retreat
+          {t("editorMockup.url")}
         </div>
         <div className="ml-auto flex items-center gap-1 rounded-full bg-blush-100 px-2.5 py-1 text-[0.65rem] font-medium text-rose-600">
-          <Sparkles className="h-3 w-3" /> Editing
+          <Sparkles className="h-3 w-3" /> {t("editorMockup.editing")}
         </div>
       </div>
 
@@ -54,12 +56,12 @@ export function EditorMockup() {
         {/* right panel */}
         <div className="hidden w-32 flex-col gap-2.5 rounded-2xl bg-blush-50 p-2.5 lg:flex">
           <p className="text-[0.6rem] font-semibold uppercase tracking-wider text-rose-500">
-            Properties
+            {t("editorMockup.properties")}
           </p>
           {[
-            ["Size", "82%"],
-            ["Rotate", "0°"],
-            ["Opacity", "100%"],
+            [t("editorMockup.size"), "82%"],
+            [t("editorMockup.rotate"), "0°"],
+            [t("editorMockup.opacity"), "100%"],
           ].map(([label, val]) => (
             <div key={label}>
               <div className="flex justify-between text-[0.6rem] text-plum-500">
@@ -72,7 +74,7 @@ export function EditorMockup() {
             </div>
           ))}
           <div className="mt-1 rounded-xl bg-paper p-2 text-center text-[0.58rem] text-plum-400">
-            8 items · $1,180
+            {t("editorMockup.summary")}
           </div>
         </div>
       </div>

@@ -1,4 +1,5 @@
-import Link from "next/link";
+import { useTranslations } from "next-intl";
+import { getTranslations } from "next-intl/server";
 import {
   Plus,
   ArrowRight,
@@ -8,6 +9,7 @@ import {
   LayoutGrid,
   Clock,
 } from "lucide-react";
+import { Link } from "@/i18n/navigation";
 import { PageShell } from "@/components/layout/page-shell";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -16,21 +18,26 @@ import { DesignScene } from "@/components/design-scene";
 import { PlantAvatar } from "@/components/plants/plant-avatar";
 import { FloralDivider, VineCorner } from "@/components/decorations";
 import { PROJECTS, DEMO_DESIGN } from "@/lib/mock/projects";
-import { PLANTS, statusFromHealth, STATUS_LABEL } from "@/lib/mock/plants";
+import { PLANTS, statusFromHealth } from "@/lib/mock/plants";
+import { statusLabel } from "@/lib/i18n-content";
 import { formatCurrency } from "@/lib/utils";
 
-export const metadata = { title: "Dashboard · MP FloraStudio" };
+export async function generateMetadata() {
+  const t = await getTranslations();
+  return { title: t("metadata.dashboard") };
+}
 
 export default function DashboardPage() {
+  const t = useTranslations();
   const thriving = PLANTS.filter((p) => statusFromHealth(p.health) === "thriving").length;
   const avgHealth = Math.round(PLANTS.reduce((s, p) => s + p.health, 0) / PLANTS.length);
   const collectionValue = PLANTS.reduce((s, p) => s + p.value, 0);
 
   const stats = [
-    { icon: LayoutGrid, label: "Designs", value: String(PROJECTS.length), tone: "bg-blush-100 text-rose-500" },
-    { icon: Sprout, label: "Plants thriving", value: `${thriving}/${PLANTS.length}`, tone: "bg-[#eef3ea] text-sage" },
-    { icon: HeartPulse, label: "Avg. health", value: `${avgHealth}%`, tone: "bg-[#fbf1dd] text-[#c79a3e]" },
-    { icon: Wallet, label: "Collection value", value: formatCurrency(collectionValue), tone: "bg-blush-100 text-rose-600" },
+    { icon: LayoutGrid, label: t("dashboard.statDesigns"), value: String(PROJECTS.length), tone: "bg-blush-100 text-rose-500" },
+    { icon: Sprout, label: t("dashboard.statThriving"), value: `${thriving}/${PLANTS.length}`, tone: "bg-[#eef3ea] text-sage" },
+    { icon: HeartPulse, label: t("dashboard.statAvgHealth"), value: `${avgHealth}%`, tone: "bg-[#fbf1dd] text-[#c79a3e]" },
+    { icon: Wallet, label: t("dashboard.statValue"), value: formatCurrency(collectionValue), tone: "bg-blush-100 text-rose-600" },
   ];
 
   return (
@@ -38,22 +45,21 @@ export default function DashboardPage() {
       {/* header */}
       <div className="relative overflow-hidden rounded-[var(--radius-xl)] border border-blush-200 bg-gradient-to-br from-blush-50 via-paper to-paper p-8 shadow-[var(--shadow-petal)]">
         <VineCorner flip className="absolute -right-5 -top-5 h-36 w-36 opacity-60" />
-        <p className="text-sm font-medium text-rose-500">Welcome back 🌸</p>
+        <p className="text-sm font-medium text-rose-500">{t("dashboard.welcome")}</p>
         <h1 className="mt-1 font-display text-4xl tracking-tight text-plum-900">
-          Your studio
+          {t("dashboard.title")}
         </h1>
         <p className="mt-2 max-w-lg text-plum-500">
-          Pick up a design or check in on your plants. Everything here is a
-          friendly demo with mock data.
+          {t("dashboard.subtitle")}
         </p>
         <div className="mt-6 flex flex-wrap gap-3">
           <Button asChild>
             <Link href="/design/new">
-              <Plus className="h-4 w-4" /> New design
+              <Plus className="h-4 w-4" /> {t("dashboard.newDesign")}
             </Link>
           </Button>
           <Button asChild variant="outline">
-            <Link href="/plants">Open plant care</Link>
+            <Link href="/plants">{t("dashboard.openPlantCare")}</Link>
           </Button>
         </div>
       </div>
@@ -75,13 +81,13 @@ export default function DashboardPage() {
       <div className="mt-12 flex items-end justify-between">
         <div>
           <h2 className="font-display text-2xl tracking-tight text-plum-900">
-            Saved designs
+            {t("dashboard.savedDesigns")}
           </h2>
-          <p className="text-sm text-plum-500">Continue where you left off.</p>
+          <p className="text-sm text-plum-500">{t("dashboard.savedDesignsSub")}</p>
         </div>
         <Button asChild variant="ghost" size="sm">
           <Link href="/design/new">
-            New <Plus className="h-4 w-4" />
+            {t("dashboard.new")} <Plus className="h-4 w-4" />
           </Link>
         </Button>
       </div>
@@ -103,23 +109,23 @@ export default function DashboardPage() {
                 variant={p.status === "Ready" ? "thriving" : p.status === "Draft" ? "okay" : "soft"}
                 className="absolute left-3 top-3 backdrop-blur"
               >
-                {p.status}
+                {t(`projectStatus.${p.status}`)}
               </Badge>
             </div>
             <div className="p-5">
-              <h3 className="text-lg text-plum-900">{p.name}</h3>
+              <h3 className="text-lg text-plum-900">{t(`projects.${p.id}.name`)}</h3>
               <p className="mt-0.5 text-sm text-plum-500">
-                {p.spaceType} · {p.style}
+                {t(`spaceTypes.${p.spaceType}`)} · {t(`projects.${p.id}.style`)}
               </p>
               <div className="mt-4 flex items-center justify-between text-xs text-plum-400">
                 <span className="flex items-center gap-1">
-                  <Clock className="h-3.5 w-3.5" /> {p.updatedAt}
+                  <Clock className="h-3.5 w-3.5" /> {t(`projects.${p.id}.updatedAt`)}
                 </span>
-                <span>{p.itemCount} items · {formatCurrency(p.estCost)}</span>
+                <span>{t("dashboard.items", { count: p.itemCount, cost: formatCurrency(p.estCost) })}</span>
               </div>
               <Button asChild variant="soft" size="sm" className="mt-4 w-full">
                 <Link href="/design/demo/editor">
-                  Open editor <ArrowRight className="h-4 w-4" />
+                  {t("dashboard.openEditor")} <ArrowRight className="h-4 w-4" />
                 </Link>
               </Button>
             </div>
@@ -135,8 +141,8 @@ export default function DashboardPage() {
             <span className="mx-auto grid h-14 w-14 place-items-center rounded-2xl bg-paper text-rose-500 shadow-[var(--shadow-petal)] transition-transform group-hover:scale-110">
               <Plus className="h-7 w-7" />
             </span>
-            <p className="mt-4 font-medium text-plum-700">Start a new design</p>
-            <p className="text-sm text-plum-400">From a photo of your space</p>
+            <p className="mt-4 font-medium text-plum-700">{t("dashboard.startNewDesign")}</p>
+            <p className="text-sm text-plum-400">{t("dashboard.fromPhoto")}</p>
           </div>
         </Link>
       </div>
@@ -147,13 +153,13 @@ export default function DashboardPage() {
       <div className="flex items-end justify-between">
         <div>
           <h2 className="font-display text-2xl tracking-tight text-plum-900">
-            Plant care
+            {t("dashboard.plantCare")}
           </h2>
-          <p className="text-sm text-plum-500">A quick look at your garden.</p>
+          <p className="text-sm text-plum-500">{t("dashboard.plantCareSub")}</p>
         </div>
         <Button asChild variant="ghost" size="sm">
           <Link href="/plants">
-            View all <ArrowRight className="h-4 w-4" />
+            {t("dashboard.viewAll")} <ArrowRight className="h-4 w-4" />
           </Link>
         </Button>
       </div>
@@ -168,9 +174,9 @@ export default function DashboardPage() {
                 <div className="min-w-0 flex-1">
                   <div className="flex items-center justify-between gap-2">
                     <h3 className="truncate text-base text-plum-900">{p.name}</h3>
-                    <Badge variant={status}>{STATUS_LABEL[status]}</Badge>
+                    <Badge variant={status}>{statusLabel(t, status)}</Badge>
                   </div>
-                  <p className="truncate text-xs text-plum-400">{p.species}</p>
+                  <p className="truncate text-xs text-plum-400">{t(`gardenPlants.${p.id}.species`)}</p>
                   <div className="mt-2 flex items-center gap-2">
                     <div className="h-1.5 flex-1 overflow-hidden rounded-full bg-blush-100">
                       <div

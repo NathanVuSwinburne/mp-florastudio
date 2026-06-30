@@ -1,9 +1,10 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import Link from "next/link";
+import { useTranslations } from "next-intl";
 import { toast } from "sonner";
 import { Plus, Camera, Sparkles, Leaf } from "lucide-react";
+import { Link } from "@/i18n/navigation";
 import { PageShell } from "@/components/layout/page-shell";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -17,25 +18,34 @@ import {
   DialogClose,
 } from "@/components/ui/dialog";
 import { PlantCard } from "@/components/plants/plant-card";
-import { PlantAvatar } from "@/components/plants/plant-avatar";
 import { FloraArt } from "@/components/flora-art";
 import { VineCorner } from "@/components/decorations";
-import { PLANTS, statusFromHealth } from "@/lib/mock/plants";
+import { statusFromHealth } from "@/lib/mock/plants";
 import { applyCare, type CareActionId } from "@/lib/care";
+import { getLocalizedPlants } from "@/lib/i18n-content";
 import type { ArtKey, Plant } from "@/lib/types";
 
-const REGISTERABLE: { name: string; species: string; art: ArtKey }[] = [
-  { name: "Coco", species: "Areca Palm", art: "palm" },
-  { name: "Tulip Trio", species: "Garden Tulips", art: "tulip" },
-  { name: "Hattie", species: "Hydrangea", art: "hydrangea" },
-  { name: "Vinny", species: "English Ivy", art: "ivy" },
-  { name: "Goldie", species: "Golden Pothos", art: "pothos" },
+// Starter plants offered in the "register" dialog — keyed by art for translation.
+const REGISTERABLE: { key: string; art: ArtKey }[] = [
+  { key: "palm", art: "palm" },
+  { key: "tulip", art: "tulip" },
+  { key: "hydrangea", art: "hydrangea" },
+  { key: "ivy", art: "ivy" },
+  { key: "pothos", art: "pothos" },
 ];
+
+const SHORT_LABEL: Record<CareActionId, string> = {
+  water: "careActions.shortWater",
+  sunlight: "careActions.shortSunlight",
+  fertilise: "careActions.shortFertilise",
+  mist: "careActions.shortMist",
+};
 
 let regCounter = 0;
 
 export default function PlantsPage() {
-  const [plants, setPlants] = useState<Plant[]>(() => PLANTS.map((p) => ({ ...p })));
+  const t = useTranslations();
+  const [plants, setPlants] = useState<Plant[]>(() => getLocalizedPlants(t));
   const [open, setOpen] = useState(false);
 
   const gardenHealth = Math.round(
@@ -54,10 +64,9 @@ export default function PlantsPage() {
       prev.map((p) => {
         if (p.id !== id) return p;
         const { plant, leveledUp } = applyCare(p, action);
-        const a = action[0].toUpperCase() + action.slice(1);
-        toast(`${a} · ${plant.name} feels better!`, { icon: "🌿" });
+        toast(t("plants.careToast", { action: t(SHORT_LABEL[action]), name: plant.name }), { icon: "🌿" });
         if (leveledUp) {
-          setTimeout(() => toast(`🎉 ${plant.name} reached Level ${plant.level}!`, { icon: "⭐" }), 250);
+          setTimeout(() => toast(t("plants.levelUpToast", { name: plant.name, level: plant.level }), { icon: "⭐" }), 250);
         }
         return plant;
       })
@@ -66,26 +75,27 @@ export default function PlantsPage() {
 
   const registerPlant = (pick: (typeof REGISTERABLE)[number]) => {
     const id = `reg-${++regCounter}`;
+    const name = t(`registerable.${pick.key}.name`);
     const newPlant: Plant = {
       id,
-      name: pick.name,
-      species: pick.species,
+      name,
+      species: t(`registerable.${pick.key}.species`),
       art: pick.art,
-      room: "New arrival",
+      room: t("plants.newArrival"),
       level: 1,
       xp: 0,
       health: 70,
       value: 30,
       stats: { hydration: 70, sunlight: 70, fertiliser: 60, growth: 55, leafColour: 72, stress: 28 },
-      acquired: "Just now",
-      timeline: [{ id: "t0", label: "Registered", icon: "🌱", when: "Just now" }],
+      acquired: t("plants.justNow"),
+      timeline: [{ id: "t0", label: t("plants.registered"), icon: "🌱", when: t("plants.justNow") }],
     };
     newPlant.health = Math.round(
       (70 + 70 + 60 + 55 + 72 + (100 - 28)) / 6
     );
     setPlants((prev) => [...prev, newPlant]);
     setOpen(false);
-    toast(`${pick.name} joined your garden! 🌸`, { icon: "🪴" });
+    toast(t("plants.joinedToast", { name }), { icon: "🪴" });
   };
 
   return (
@@ -97,21 +107,21 @@ export default function PlantsPage() {
         <div className="relative grid items-center gap-8 lg:grid-cols-[auto_1fr_auto]">
           {/* health ring */}
           <div className="flex items-center gap-5">
-            <HealthRing value={gardenHealth} />
+            <HealthRing value={gardenHealth} label={t("plants.health")} />
             <div>
               <Badge variant="sage" className="mb-1">
-                <Leaf className="h-3.5 w-3.5" /> Garden level {gardenLevel}
+                <Leaf className="h-3.5 w-3.5" /> {t("plants.gardenLevel", { level: gardenLevel })}
               </Badge>
-              <h1 className="font-display text-3xl tracking-tight text-plum-900">Your garden</h1>
-              <p className="text-sm text-plum-500">{plants.length} plants in your care</p>
+              <h1 className="font-display text-3xl tracking-tight text-plum-900">{t("plants.yourGarden")}</h1>
+              <p className="text-sm text-plum-500">{t("plants.plantsInCare", { count: plants.length })}</p>
             </div>
           </div>
 
           {/* status pills */}
           <div className="flex flex-wrap gap-2 lg:justify-center">
-            <StatusPill tone="thriving" label="Thriving" n={counts.thriving} />
-            <StatusPill tone="okay" label="Doing okay" n={counts.okay} />
-            <StatusPill tone="needs" label="Needs care" n={counts.needs} />
+            <StatusPill tone="thriving" label={t("plants.statusThriving")} n={counts.thriving} />
+            <StatusPill tone="okay" label={t("plants.statusOkay")} n={counts.okay} />
+            <StatusPill tone="needs" label={t("plants.statusNeeds")} n={counts.needs} />
           </div>
 
           {/* actions */}
@@ -119,39 +129,39 @@ export default function PlantsPage() {
             <Dialog open={open} onOpenChange={setOpen}>
               <DialogTrigger asChild>
                 <Button>
-                  <Plus className="h-4 w-4" /> Register plant
+                  <Plus className="h-4 w-4" /> {t("plants.registerPlant")}
                 </Button>
               </DialogTrigger>
               <DialogContent>
                 <DialogHeader>
-                  <DialogTitle>Register a plant</DialogTitle>
+                  <DialogTitle>{t("plants.registerTitle")}</DialogTitle>
                   <DialogDescription>
-                    Add a companion to your garden. (Mock — pick a starter below.)
+                    {t("plants.registerDesc")}
                   </DialogDescription>
                 </DialogHeader>
                 <div className="grid grid-cols-2 gap-3 sm:grid-cols-3">
                   {REGISTERABLE.map((p) => (
                     <button
-                      key={p.name}
+                      key={p.key}
                       onClick={() => registerPlant(p)}
                       className="flex flex-col items-center gap-2 rounded-2xl border border-blush-200 bg-paper p-3 transition-all hover:-translate-y-0.5 hover:border-rose-300 hover:shadow-[var(--shadow-petal)]"
                     >
                       <div className="grid h-16 w-16 place-items-center rounded-xl bg-blush-50">
                         <FloraArt art={p.art} className="h-12 w-12" />
                       </div>
-                      <span className="text-xs font-medium text-plum-700">{p.name}</span>
-                      <span className="text-[0.62rem] text-plum-400">{p.species}</span>
+                      <span className="text-xs font-medium text-plum-700">{t(`registerable.${p.key}.name`)}</span>
+                      <span className="text-[0.62rem] text-plum-400">{t(`registerable.${p.key}.species`)}</span>
                     </button>
                   ))}
                 </div>
                 <DialogClose asChild>
-                  <Button variant="ghost" className="mt-1">Cancel</Button>
+                  <Button variant="ghost" className="mt-1">{t("plants.cancel")}</Button>
                 </DialogClose>
               </DialogContent>
             </Dialog>
             <Button asChild variant="outline">
               <Link href="/plants/demo/photo-check">
-                <Camera className="h-4 w-4" /> Photo check
+                <Camera className="h-4 w-4" /> {t("plants.photoCheck")}
               </Link>
             </Button>
           </div>
@@ -161,8 +171,7 @@ export default function PlantsPage() {
       {/* tip */}
       <div className="mt-6 flex items-center gap-2 rounded-2xl bg-blush-50/70 px-4 py-3 text-sm text-plum-500">
         <Sparkles className="h-4 w-4 shrink-0 text-rose-400" />
-        Tap the care buttons on each plant to water, sun, feed and mist — stats
-        update live and your plants level up. Click a plant for full details.
+        {t("plants.tip")}
       </div>
 
       {/* grid */}
@@ -175,7 +184,7 @@ export default function PlantsPage() {
   );
 }
 
-function HealthRing({ value }: { value: number }) {
+function HealthRing({ value, label }: { value: number; label: string }) {
   const r = 34;
   const circ = 2 * Math.PI * r;
   const offset = circ * (1 - value / 100);
@@ -198,7 +207,7 @@ function HealthRing({ value }: { value: number }) {
       </svg>
       <div className="absolute text-center">
         <p className="font-display text-2xl leading-none text-plum-900">{value}</p>
-        <p className="text-[0.6rem] uppercase tracking-wide text-plum-400">health</p>
+        <p className="text-[0.6rem] uppercase tracking-wide text-plum-400">{label}</p>
       </div>
     </div>
   );

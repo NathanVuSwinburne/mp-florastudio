@@ -1,6 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import { useTranslations } from "next-intl";
 import { Search, Plus } from "lucide-react";
 import { FloraArt } from "@/components/flora-art";
 import { Input } from "@/components/ui/input";
@@ -14,6 +15,7 @@ export function ComponentLibrary({
 }: {
   onAdd: (def: ComponentDef) => void;
 }) {
+  const t = useTranslations();
   const [query, setQuery] = useState("");
   const [category, setCategory] = useState<ComponentCategory | "All">("All");
 
@@ -22,14 +24,14 @@ export function ComponentLibrary({
   return (
     <div className="flex h-full flex-col">
       <div className="border-b border-blush-200/70 p-4">
-        <h2 className="font-display text-lg text-plum-900">Library</h2>
-        <p className="text-xs text-plum-400">Click a piece to add it to your space.</p>
+        <h2 className="font-display text-lg text-plum-900">{t("editor.library")}</h2>
+        <p className="text-xs text-plum-400">{t("editor.libraryHint")}</p>
         <div className="relative mt-3">
           <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-plum-300" />
           <Input
             value={query}
             onChange={(e) => setQuery(e.target.value)}
-            placeholder="Search plants, pots, lights…"
+            placeholder={t("editor.searchPlaceholder")}
             className="h-10 pl-9"
           />
         </div>
@@ -38,11 +40,11 @@ export function ComponentLibrary({
       {/* categories */}
       <div className="flex flex-wrap gap-1.5 border-b border-blush-200/70 p-3">
         <CatChip active={category === "All"} onClick={() => setCategory("All")}>
-          All
+          {t("editor.all")}
         </CatChip>
         {CATEGORIES.map((c) => (
           <CatChip key={c} active={category === c} onClick={() => setCategory(c)}>
-            {c}
+            {t(`categories.${c}`)}
           </CatChip>
         ))}
       </div>
@@ -53,7 +55,7 @@ export function ComponentLibrary({
           <div className="grid h-full place-items-center text-center text-sm text-plum-400">
             <div>
               <p className="text-3xl">🌷</p>
-              <p className="mt-2">No pieces match “{query}”.</p>
+              <p className="mt-2">{t("editor.noMatch", { query })}</p>
             </div>
           </div>
         ) : (
@@ -71,7 +73,7 @@ export function ComponentLibrary({
                   <FloraArt art={def.art} className="h-14 w-14" />
                 </div>
                 <span className="mt-2 line-clamp-1 text-xs font-medium text-plum-700">
-                  {def.name}
+                  {t(`components.${def.id}.name`)}
                 </span>
                 <span className="text-[0.65rem] text-plum-400">
                   {formatCurrency(def.price)}

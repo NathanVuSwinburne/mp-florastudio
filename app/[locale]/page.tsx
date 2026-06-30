@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { useTranslations } from "next-intl";
 import {
   ArrowRight,
   Sparkles,
@@ -12,6 +12,7 @@ import {
   Sun,
   Leaf,
 } from "lucide-react";
+import { Link } from "@/i18n/navigation";
 import { PageShell } from "@/components/layout/page-shell";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -26,13 +27,15 @@ const CATEGORY_ART: ArtKey[] = [
   "lantern", "bench", "outdoor-chair", "sofa", "wall-frame", "vase",
 ];
 
-const STEPS = [
-  { icon: ImageIcon, title: "Start from your space", text: "Pick a sample photo or upload your own garden, balcony, courtyard or living room." },
-  { icon: MousePointerClick, title: "Drag in the beauty", text: "Search hundreds of plants, pots, lights and furnishings. Drag, resize, rotate — no skills needed." },
-  { icon: HeartHandshake, title: "Grow what you planted", text: "Track the real plants from your design in a cosy, game-like care studio." },
-];
-
 export default function Home() {
+  const t = useTranslations();
+
+  const steps = [
+    { icon: ImageIcon, title: t("home.step1Title"), text: t("home.step1Text") },
+    { icon: MousePointerClick, title: t("home.step2Title"), text: t("home.step2Text") },
+    { icon: HeartHandshake, title: t("home.step3Title"), text: t("home.step3Text") },
+  ];
+
   return (
     <PageShell>
       {/* ---------------------------------------------------------------- HERO */}
@@ -45,35 +48,32 @@ export default function Home() {
           <div className="relative">
             <Badge variant="soft" className="mb-5 animate-rise">
               <Sparkles className="h-3.5 w-3.5" />
-              No-code visual garden studio
+              {t("home.heroBadge")}
             </Badge>
             <h1 className="font-display text-[2.7rem] leading-[1.04] tracking-tight text-plum-900 sm:text-6xl">
-              Design your dream
+              {t("home.heroTitleLine1")}
               <br />
-              garden{" "}
-              <span className="shimmer-text">from a photo.</span>
+              {t("home.heroTitleGarden")}{" "}
+              <span className="shimmer-text">{t("home.heroTitleHighlight")}</span>
             </h1>
             <p className="mt-6 max-w-xl text-lg leading-relaxed text-plum-500">
-              MP FloraStudio is a no-code visual studio for gardens and home
-              spaces. Edit your real space, add flowers, plants, pots, statues,
-              vines, lighting, furniture and decor — then care for the real
-              plants you bring to life.
+              {t("home.heroSubtitle")}
             </p>
             <div className="mt-8 flex flex-wrap items-center gap-3">
               <Button asChild size="lg">
                 <Link href="/design/new">
-                  Start designing <ArrowRight className="h-4 w-4" />
+                  {t("home.startDesigning")} <ArrowRight className="h-4 w-4" />
                 </Link>
               </Button>
               <Button asChild size="lg" variant="outline">
                 <Link href="/design/demo/editor">
-                  <Wand2 className="h-4 w-4" /> View demo
+                  <Wand2 className="h-4 w-4" /> {t("home.viewDemo")}
                 </Link>
               </Button>
             </div>
             <div className="mt-8 flex items-center gap-6 text-sm text-plum-400">
-              <span className="flex items-center gap-1.5"><Layers className="h-4 w-4 text-rose-400" /> 35+ design pieces</span>
-              <span className="flex items-center gap-1.5"><Leaf className="h-4 w-4 text-sage" /> Live plant care</span>
+              <span className="flex items-center gap-1.5"><Layers className="h-4 w-4 text-rose-400" /> {t("home.statPieces")}</span>
+              <span className="flex items-center gap-1.5"><Leaf className="h-4 w-4 text-sage" /> {t("home.statCare")}</span>
             </div>
           </div>
 
@@ -90,31 +90,31 @@ export default function Home() {
       <section className="mx-auto max-w-7xl px-5 py-20 sm:px-8">
         <div className="mx-auto max-w-2xl text-center">
           <p className="text-sm font-semibold uppercase tracking-[0.2em] text-rose-500">
-            Two studios, one bloom
+            {t("home.studiosEyebrow")}
           </p>
           <h2 className="mt-3 font-display text-4xl tracking-tight text-plum-900">
-            Imagine it, then grow it
+            {t("home.studiosTitle")}
           </h2>
         </div>
 
         <div className="mt-12 grid gap-6 lg:grid-cols-2">
           <FeatureCard
             tone="rose"
-            eyebrow="Visual design editor"
-            title="A Canva for your real space"
-            text="Upload your garden or room, then drag in plants, pots, vines, statues, lighting and furniture. Resize, rotate, layer and preview — all in the browser, no design skills required."
-            bullets={["Search & browse categories", "Drag · resize · rotate · duplicate", "Live cost & shopping list"]}
+            eyebrow={t("home.featureDesignEyebrow")}
+            title={t("home.featureDesignTitle")}
+            text={t("home.featureDesignText")}
+            bullets={[t("home.featureDesignBullet1"), t("home.featureDesignBullet2"), t("home.featureDesignBullet3")]}
             href="/design/demo/editor"
-            cta="Open the editor"
+            cta={t("home.featureDesignCta")}
           />
           <FeatureCard
             tone="sage"
-            eyebrow="Plant health monitor"
-            title="Care for plants like a cosy game"
-            text="Every plant you place becomes a living companion. Water, give sunlight, fertilise and mist to keep them thriving — and run a demo AI photo check whenever you're unsure."
-            bullets={["Cute avatars, levels & health", "Hydration · sunlight · growth stats", "Demo AI photo health check"]}
+            eyebrow={t("home.featureCareEyebrow")}
+            title={t("home.featureCareTitle")}
+            text={t("home.featureCareText")}
+            bullets={[t("home.featureCareBullet1"), t("home.featureCareBullet2"), t("home.featureCareBullet3")]}
             href="/plants"
-            cta="Enter the garden"
+            cta={t("home.featureCareCta")}
           />
         </div>
       </section>
@@ -122,7 +122,7 @@ export default function Home() {
       {/* ------------------------------------------------------------- HOW IT WORKS */}
       <section className="relative mx-auto max-w-7xl px-5 py-12 sm:px-8">
         <div className="grid gap-6 md:grid-cols-3">
-          {STEPS.map((s, i) => (
+          {steps.map((s, i) => (
             <div
               key={s.title}
               className="relative rounded-[var(--radius-lg)] border border-blush-200/70 bg-paper/70 p-7 shadow-[var(--shadow-petal)]"
@@ -144,14 +144,13 @@ export default function Home() {
       <section className="mx-auto max-w-7xl px-5 py-20 sm:px-8">
         <div className="flex flex-col items-center text-center">
           <Badge variant="gold" className="mb-4">
-            <Sparkles className="h-3.5 w-3.5" /> Curated library
+            <Sparkles className="h-3.5 w-3.5" /> {t("home.libraryBadge")}
           </Badge>
           <h2 className="font-display text-4xl tracking-tight text-plum-900">
-            Everything to style a space
+            {t("home.libraryTitle")}
           </h2>
           <p className="mt-3 max-w-xl text-plum-500">
-            From peonies to floor lamps — a hand-illustrated collection across
-            twelve categories, ready to drag onto your canvas.
+            {t("home.libraryText")}
           </p>
         </div>
 
@@ -164,7 +163,7 @@ export default function Home() {
               <div className="grid h-16 w-16 place-items-center rounded-2xl bg-gradient-to-br from-blush-50 to-blush-100 transition-transform duration-500 group-hover:scale-110">
                 <FloraArt art={CATEGORY_ART[i]} className="h-12 w-12" />
               </div>
-              <span className="text-sm font-medium text-plum-700">{cat}</span>
+              <span className="text-sm font-medium text-plum-700">{t(`categories.${cat}`)}</span>
             </div>
           ))}
         </div>
@@ -177,19 +176,17 @@ export default function Home() {
           <div className="grid items-center gap-10 lg:grid-cols-[1.1fr_1fr]">
             <div>
               <h2 className="font-display text-4xl tracking-tight text-plum-900">
-                Then watch them flourish
+                {t("home.careTeaserTitle")}
               </h2>
               <p className="mt-4 max-w-lg text-plum-500">
-                Your design isn&apos;t the finish line. Every plant becomes a
-                companion with a level, a health score and a little personality.
-                Tend to them with delightful one-tap care.
+                {t("home.careTeaserText")}
               </p>
               <div className="mt-6 flex flex-wrap gap-3">
                 {[
-                  { icon: Droplets, label: "Water" },
-                  { icon: Sun, label: "Sunlight" },
-                  { icon: Leaf, label: "Fertilise" },
-                  { icon: Camera, label: "Photo check" },
+                  { icon: Droplets, label: t("home.careWater") },
+                  { icon: Sun, label: t("home.careSunlight") },
+                  { icon: Leaf, label: t("home.careFertilise") },
+                  { icon: Camera, label: t("home.carePhotoCheck") },
                 ].map((a) => (
                   <span
                     key={a.label}
@@ -201,7 +198,7 @@ export default function Home() {
               </div>
               <Button asChild className="mt-7">
                 <Link href="/plants">
-                  Meet your plants <ArrowRight className="h-4 w-4" />
+                  {t("home.meetYourPlants")} <ArrowRight className="h-4 w-4" />
                 </Link>
               </Button>
             </div>
@@ -223,19 +220,19 @@ export default function Home() {
       {/* ---------------------------------------------------------------- CTA BAND */}
       <section className="mx-auto max-w-5xl px-5 py-20 text-center sm:px-8">
         <h2 className="font-display text-4xl tracking-tight text-plum-900 sm:text-5xl">
-          Your most beautiful space starts here
+          {t("home.ctaTitle")}
         </h2>
         <p className="mx-auto mt-4 max-w-xl text-plum-500">
-          No sign-up, no setup. Open the studio and start dreaming in flowers.
+          {t("home.ctaText")}
         </p>
         <div className="mt-8 flex flex-wrap justify-center gap-3">
           <Button asChild size="lg">
             <Link href="/design/new">
-              Start designing <ArrowRight className="h-4 w-4" />
+              {t("home.ctaStart")} <ArrowRight className="h-4 w-4" />
             </Link>
           </Button>
           <Button asChild size="lg" variant="soft">
-            <Link href="/dashboard">Go to dashboard</Link>
+            <Link href="/dashboard">{t("home.ctaDashboard")}</Link>
           </Button>
         </div>
       </section>

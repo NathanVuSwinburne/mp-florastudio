@@ -1,5 +1,6 @@
 "use client";
 
+import { useTranslations } from "next-intl";
 import { Droplets, Sun, Sprout, CloudDrizzle } from "lucide-react";
 import { cn } from "@/lib/utils";
 import type { CareActionId } from "@/lib/care";
@@ -18,11 +19,11 @@ const STYLES: Record<CareActionId, string> = {
   mist: "hover:border-blush-300 hover:bg-blush-50 hover:text-rose-600",
 };
 
-const ACTIONS: { id: CareActionId; label: string }[] = [
-  { id: "water", label: "Water" },
-  { id: "sunlight", label: "Sunlight" },
-  { id: "fertilise", label: "Fertilise" },
-  { id: "mist", label: "Mist" },
+const ACTIONS: { id: CareActionId; labelKey: string }[] = [
+  { id: "water", labelKey: "careActions.shortWater" },
+  { id: "sunlight", labelKey: "careActions.shortSunlight" },
+  { id: "fertilise", labelKey: "careActions.shortFertilise" },
+  { id: "mist", labelKey: "careActions.shortMist" },
 ];
 
 export function CareActions({
@@ -32,6 +33,7 @@ export function CareActions({
   onAction: (id: CareActionId) => void;
   variant?: "compact" | "full";
 }) {
+  const t = useTranslations();
   return (
     <div className={cn("grid grid-cols-4 gap-2", variant === "full" && "sm:grid-cols-4")}>
       {ACTIONS.map((a) => {
@@ -50,7 +52,7 @@ export function CareActions({
             )}
           >
             <Icon className="h-4 w-4 transition-transform group-hover/care:scale-110" />
-            <span className="text-[0.65rem] font-medium">{a.label}</span>
+            <span className="text-[0.65rem] font-medium">{t(a.labelKey)}</span>
           </button>
         );
       })}
