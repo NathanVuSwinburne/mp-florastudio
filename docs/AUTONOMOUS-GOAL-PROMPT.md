@@ -36,7 +36,9 @@ HOW TO WORK:
 - Run the actual test commands and paste real output into your reasoning. NEVER
   claim a test passed without running it. If something fails, debug it before
   moving on — do not proceed on a red suite.
-- Commit after each task with the message from the plan. Frequent commits.
+- Commit after every major change, using Conventional Commit format
+  (feat:, fix:, refactor:, test:, chore:, docs:). Prefer the message from the
+  plan where one is given. Commit frequently — at least once per task.
 - You are already on branch feat/vietnamese-i18n; keep working there unless the
   repo is on main, in which case create a branch first.
 - Stay strictly in Phase 2a scope. Do NOT start the Plant Carer Agent (2b), the
