@@ -77,6 +77,14 @@ STOP CONDITIONS (stop and write a summary when ALL are true):
 - docs/DECISIONS.md has an entry for every implementation decision you made.
 - ml/RUN_TRAINING.md documents the human GPU steps.
 
+IF TIME REMAINS AFTER 2A: you may do ONLY the "safe prep" listed in
+docs/superpowers/specs/PHASE-2B-DIRECTION.md (pure types, the rules-based care
+table + tests, a keyless Open-Meteo client + tests, drafting the agent system
+prompt as a file). You MUST NOT, without founder sign-off, add auth, provision
+any database/storage, call or configure a paid LLM, deploy a backend, or store
+any user photo/PII. If you reach any of those, STOP and record an OPEN QUESTION
+in docs/DECISIONS.md. Do not start real Phase 2b implementation.
+
 FINAL OUTPUT: a concise summary of what you built, the test results (real
 output), the list of decisions you logged (titles), and the exact next steps for
 the human (GPU training + Phase 2b kickoff).
